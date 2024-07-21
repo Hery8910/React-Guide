@@ -1,0 +1,404 @@
+[
+    {
+        "name": "Alert",
+        "description": "A component to display important messages or alerts to users.",
+        "installation": "npm install react-alert --save",
+        "usage": {
+            "basic": {
+                "component": "Alert.js",
+                "code": "import React from 'react';\nimport './Alert.css';\n\nfunction Alert({ message }) {\n  return (\n    <div className=\"alert\">\n      {message}\n    </div>\n  );\n}\n\nexport default Alert;"
+            },
+            "styles": {
+                "file": "Alert.css",
+                "code": "/* Alert.css */\n.alert {\n  padding: 15px;\n  background-color: #f44336;\n  color: white;\n  margin-bottom: 15px;\n}\n\n.alert.success {\n  background-color: #4CAF50;\n}\n\n.alert.info {\n  background-color: #2196F3;\n}\n\n.alert.warning {\n  background-color: #ff9800;\n}"
+            }
+        },
+        "properties": [
+            {
+                "name": "message",
+                "description": "The message to display in the alert.",
+                "example": "<Alert message=\"This is an alert message!\" />"
+            }
+        ],
+        "references": [
+            {
+                "name": "Official Documentation",
+                "url": "https://github.com/schiehll/react-alert"
+            }
+        ]
+    },
+    {
+        "name": "Button",
+        "description": "The <button> HTML element is an interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it then performs an action, such as submitting a form or opening a dialog.",
+        "installation": "npm install react-button --save",
+        "usage": {
+            "basic": {
+                "component": "Button.js",
+                "code": "import React from 'react';\nimport './Button.css';\n\nfunction Button({ label, onClick }) {\n  return (\n    <button className=\"button\" onClick={onClick}>\n      {label}\n    </button>\n  );\n}\n\nexport default Button;"
+            },
+            "styles": {
+                "file": "Button.css",
+                "code": "/* Button.css */\n.button {\n  background-color: #4CAF50;\n  border: none;\n  color: white;\n  padding: 15px 32px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  margin: 4px 2px;\n  cursor: pointer;\n}\n\n.button:hover {\n  background-color: #45a049;\n}"
+            }
+        },
+        "properties": [
+            {
+                "name": "label",
+                "description": "The text to display on the button.",
+                "example": "<Button label=\"Click Me\" onClick={handleClick} />"
+            },
+            {
+                "name": "onClick",
+                "description": "Function to call when the button is clicked.",
+                "example": "<Button label=\"Click Me\" onClick={handleClick} />"
+            }
+        ],
+        "references": [
+            {
+                "name": "Official Documentation",
+                "url": "https://react-bootstrap.github.io/components/buttons/"
+            }
+        ]
+    },
+    {
+        "name": "Card",
+        "description": "A component to display content in a card layout.",
+        "installation": "npm install react-card --save",
+        "usage": {
+            "basic": {
+                "component": "Card.js",
+                "code": "import React from 'react';\nimport './Card.css';\n\nfunction Card({ title, content }) {\n  return (\n    <div className=\"card\">\n      <h3>{title}</h3>\n      <p>{content}</p>\n    </div>\n  );\n}\n\nexport default Card;"
+            },
+            "styles": {
+                "file": "Card.css",
+                "code": "/* Card.css */\n.card {\n  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\n  transition: 0.3s;\n  padding: 16px;\n}\n\n.card:hover {\n  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\n}\n\n.card h3 {\n  margin-top: 0;\n}"
+            }
+        },
+        "properties": [
+            {
+                "name": "title",
+                "description": "The title of the card.",
+                "example": "<Card title=\"Card Title\" content=\"This is some content\" />"
+            },
+            {
+                "name": "content",
+                "description": "The content to display in the card.",
+                "example": "<Card title=\"Card Title\" content=\"This is some content\" />"
+            }
+        ],
+        "references": [
+            {
+                "name": "Official Documentation",
+                "url": "https://react-bootstrap.github.io/components/cards/"
+            }
+        ]
+    },
+    {
+        "name": "Carousel",
+        "description": "A component to create a carousel/slider for images or content.",
+        "installation": "npm install react-carousel --save",
+        "usage": {
+            "basic": {
+                "component": "Carousel.js",
+                "code": "import React from 'react';\nimport './Carousel.css';\n\nfunction Carousel({ items }) {\n  return (\n    <div className=\"carousel\">\n      {items.map((item, index) => (\n        <div key={index} className=\"carousel-item\">\n          {item}\n        </div>\n      ))}\n    </div>\n  );\n}\n\nexport default Carousel;"
+            },
+            "styles": {
+                "file": "Carousel.css",
+                "code": "/* Carousel.css */\n.carousel {\n  display: flex;\n  overflow-x: scroll;\n  scroll-snap-type: x mandatory;\n}\n\n.carousel-item {\n  flex: none;\n  scroll-snap-align: start;\n  width: 100%;\n  transition: transform 0.5s ease;\n}\n"
+            }
+        },
+        "properties": [
+            {
+                "name": "items",
+                "description": "An array of items to display in the carousel.",
+                "example": "<Carousel items={[<img src=\"image1.jpg\" />, <img src=\"image2.jpg\" />]} />"
+            }
+        ],
+        "references": [
+            {
+                "name": "Official Documentation",
+                "url": "https://react-bootstrap.github.io/components/carousel/"
+            }
+        ]
+    },
+    {
+        "name": "Navbar",
+        "description": "A custom sliding navbar component created using React without external libraries.",
+        "installation": "npm install react-burger-menu --save",
+        "usage": {
+            "basic": {
+                "component": "Navbar.js",
+                "code": "import React, { useState } from 'react';\nimport './Navbar.css';\n\nfunction Navbar() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  const toggleMenu = () => {\n    setIsOpen(!isOpen);\n  };\n\n  return (\n    <div>\n      <div className=\"burger-button\" onClick={toggleMenu}>\n        &#9776;\n      </div>\n      <nav className={`menu ${isOpen ? 'open' : ''}`}>\n        <a className=\"menu-item\" href=\"#home\">Home</a>\n        <a className=\"menu-item\" href=\"#about\">About</a>\n        <a className=\"menu-item\" href=\"#product\">Product</a>\n        <a className=\"menu-item\" href=\"#blog\">Blog</a>\n      </nav>\n    </div>\n  );\n}\n\nexport default Navbar;"
+            },
+            "styles": {
+                "file": "Navbar.css",
+                "code": "/* Navbar.css */\nbody {\n  font-family: Arial, sans-serif;\n}\n\n.burger-button {\n  position: fixed;\n  top: 15px;\n  left: 15px;\n  font-size: 30px;\n  cursor: pointer;\n  z-index: 1000;\n}\n\n.menu {\n  position: fixed;\n  top: 0;\n  left: -250px;\n  width: 250px;\n  height: 100%;\n  background-color: #333;\n  overflow-x: hidden;\n  transition: 0.5s;\n  padding-top: 60px;\n}\n\n.menu.open {\n  left: 0;\n}\n\n.menu-item {\n  padding: 8px 8px 8px 32px;\n  text-decoration: none;\n  font-size: 25px;\n  color: white;\n  display: block;\n  transition: 0.3s;\n}\n\n.menu-item:hover {\n  background-color: #575757;\n}"
+            }
+        },
+        "properties": [
+            {
+                "name": "isOpen",
+                "description": "Controls whether the menu is open.",
+                "example": "<Menu isOpen={true} onStateChange={(state) => handleStateChange(state)}>"
+            },
+            {
+                "name": "onStateChange",
+                "description": "Function called when the state of the menu changes.",
+                "example": "<Menu isOpen={true} onStateChange={(state) => handleStateChange(state)}>"
+            }
+        ],
+        "references": [
+            {
+                "name": "Official Documentation",
+                "url": "https://github.com/negomi/react-burger-menu"
+            },
+            {
+                "name": "Live Demo",
+                "url": "https://negomi.github.io/react-burger-menu/"
+            }
+        ]
+    },
+    {
+        "name": "Pagination",
+        "description": "A component to add pagination controls to your application.",
+        "installation": "npm install react-paginate --save",
+        "usage": {
+            "basic": {
+                "component": "Pagination.js",
+                "code": "import React from 'react';\nimport ReactPaginate from 'react-paginate';\nimport './Pagination.css';\n\nfunction Pagination({ pageCount, onPageChange }) {\n  return (\n    <ReactPaginate\n      previousLabel={'previous'}\n      nextLabel={'next'}\n      breakLabel={'...'}\n      breakClassName={'break-me'}\n      pageCount={pageCount}\n      marginPagesDisplayed={2}\n      pageRangeDisplayed={5}\n      onPageChange={onPageChange}\n      containerClassName={'pagination'}\n      subContainerClassName={'pages pagination'}\n      activeClassName={'active'}\n    />\n  );\n}\n\nexport default Pagination;"
+            },
+            "styles": {
+                "file": "Pagination.css",
+                "code": "/* Pagination.css */\n.pagination {\n  display: flex;\n  justify-content: center;\n  padding: 10px 0;\n}\n\n.pagination li {\n  display: inline;\n  margin: 0 5px;\n}\n\n.pagination li a {\n  text-decoration: none;\n  color: #007bff;\n  padding: 5px 10px;\n}\n\n.pagination li.active a {\n  font-weight: bold;\n  color: #000;\n}"
+            }
+        },
+        "properties": [
+            {
+                "name": "pageCount",
+                "description": "The total number of pages.",
+                "example": "<Pagination pageCount={10} onPageChange={handlePageChange} />"
+            },
+            {
+                "name": "onPageChange",
+                "description": "Function to call when the page is changed.",
+                "example": "<Pagination pageCount={10} onPageChange={handlePageChange} />"
+            }
+        ],
+        "references": [
+            {
+                "name": "Official Documentation",
+                "url": "https://github.com/AdeleD/react-paginate"
+            }
+        ]
+    },
+    {
+        "name": "Placeholder",
+        "description": "A component to display placeholder content while the actual content is loading.",
+        "installation": "npm install react-placeholder --save",
+        "usage": {
+            "basic": {
+                "component": "Placeholder.js",
+                "code": "import React from 'react';\nimport ReactPlaceholder from 'react-placeholder';\nimport 'react-placeholder/lib/reactPlaceholder.css';\n\nfunction Placeholder({ ready, children }) {\n  return (\n    <ReactPlaceholder type=\"text\" rows={7} ready={ready}>\n      {children}\n    </ReactPlaceholder>\n  );\n}\n\nexport default Placeholder;"
+            },
+            "styles": {
+                "file": "Placeholder.css",
+                "code": "/* Placeholder.css */\n.react-placeholder {\n  background-color: #eee;\n  border-radius: 4px;\n  margin-bottom: 10px;\n}"
+            }
+        },
+        "properties": [
+            {
+                "name": "ready",
+                "description": "Boolean to indicate if the actual content is ready to be displayed.",
+                "example": "<Placeholder ready={false}><YourComponent /></Placeholder>"
+            },
+            {
+                "name": "children",
+                "description": "The actual content to display when ready.",
+                "example": "<Placeholder ready={false}><YourComponent /></Placeholder>"
+            }
+        ],
+        "references": [
+            {
+                "name": "Official Documentation",
+                "url": "https://github.com/buildo/react-placeholder"
+            }
+        ]
+    },
+    {
+        "name": "Popover",
+        "description": "A component to display popovers or tooltips on hover or click.",
+        "installation": "npm install react-bootstrap --save",
+        "usage": {
+            "basic": {
+                "component": "Popover.js",
+                "code": "import React from 'react';\nimport { Popover, OverlayTrigger, Button } from 'react-bootstrap';\nimport 'bootstrap/dist/css/bootstrap.min.css';\n\nfunction PopoverComponent() {\n  const popover = (\n    <Popover id=\"popover-basic\">\n      <Popover.Header as=\"h3\">Popover Title</Popover.Header>\n      <Popover.Body>\n        And here's some <strong>amazing</strong> content. It's very engaging. right?\n      </Popover.Body>\n    </Popover>\n  );\n\n  return (\n    <OverlayTrigger trigger=\"click\" placement=\"right\" overlay={popover}>\n      <Button variant=\"success\">Click me to see</Button>\n    </OverlayTrigger>\n  );\n}\n\nexport default PopoverComponent;"
+            },
+            "styles": {
+                "file": "",
+                "code": ""
+            }
+        },
+        "properties": [
+            {
+                "name": "placement",
+                "description": "The position of the popover relative to the target.",
+                "example": "<OverlayTrigger trigger=\"click\" placement=\"right\" overlay={popover}>"
+            },
+            {
+                "name": "trigger",
+                "description": "The event that triggers the popover.",
+                "example": "<OverlayTrigger trigger=\"click\" placement=\"right\" overlay={popover}>"
+            }
+        ],
+        "references": [
+            {
+                "name": "Official Documentation",
+                "url": "https://react-bootstrap.github.io/components/overlays/#popovers"
+            }
+        ]
+    },
+    {
+        "name": "ScrollSpy",
+        "description": "A component to automatically update navigation or perform actions based on scroll position.",
+        "installation": "npm install react-scrollspy --save",
+        "usage": {
+            "basic": {
+                "component": "ScrollSpy.js",
+                "code": "import React from 'react';\nimport Scrollspy from 'react-scrollspy';\n\nfunction ScrollSpyComponent() {\n  return (\n    <div>\n      <Scrollspy items={['section-1', 'section-2', 'section-3']} currentClassName=\"is-current\">\n        <li><a href=\"#section-1\">Section 1</a></li>\n        <li><a href=\"#section-2\">Section 2</a></li>\n        <li><a href=\"#section-3\">Section 3</a></li>\n      </Scrollspy>\n      <div id=\"section-1\">Section 1 Content</div>\n      <div id=\"section-2\">Section 2 Content</div>\n      <div id=\"section-3\">Section 3 Content</div>\n    </div>\n  );\n}\n\nexport default ScrollSpyComponent;"
+            },
+            "styles": {
+                "file": "ScrollSpy.css",
+                "code": "/* ScrollSpy.css */\n.is-current a {\n  color: red;\n  font-weight: bold;\n}"
+            }
+        },
+        "properties": [
+            {
+                "name": "items",
+                "description": "An array of section IDs to spy on.",
+                "example": "<Scrollspy items={['section-1', 'section-2', 'section-3']} currentClassName=\"is-current\">"
+            },
+            {
+                "name": "currentClassName",
+                "description": "Class name to apply to the current item.",
+                "example": "<Scrollspy items={['section-1', 'section-2', 'section-3']} currentClassName=\"is-current\">"
+            }
+        ],
+        "references": [
+            {
+                "name": "Official Documentation",
+                "url": "https://github.com/makotot/react-scrollspy"
+            }
+        ]
+    },
+    {
+        "name": "Spinner",
+        "description": "A component to display a loading spinner.",
+        "installation": "npm install react-loader-spinner --save",
+        "usage": {
+            "basic": {
+                "component": "Spinner.js",
+                "code": "import React from 'react';\nimport { Circles } from 'react-loader-spinner';\nimport 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';\n\nfunction Spinner() {\n  return (\n    <Circles color=\"#00BFFF\" height={80} width={80} />\n  );\n}\n\nexport default Spinner;"
+            },
+            "styles": {
+                "file": "",
+                "code": ""
+            }
+        },
+        "properties": [
+            {
+                "name": "color",
+                "description": "The color of the spinner.",
+                "example": "<Circles color=\"#00BFFF\" height={80} width={80} />"
+            },
+            {
+                "name": "height",
+                "description": "The height of the spinner.",
+                "example": "<Circles color=\"#00BFFF\" height={80} width={80} />"
+            },
+            {
+                "name": "width",
+                "description": "The width of the spinner.",
+                "example": "<Circles color=\"#00BFFF\" height={80} width={80} />"
+            }
+        ],
+        "references": [
+            {
+                "name": "Official Documentation",
+                "url": "https://www.npmjs.com/package/react-loader-spinner"
+            }
+        ]
+    },
+    {
+        "name": "Footer",
+        "description": "A component to create a footer for your application.",
+        "installation": "",
+        "usage": {
+            "basic": {
+                "component": "Footer.js",
+                "code": "import React from 'react';\nimport './Footer.css';\n\nfunction Footer() {\n  return (\n    <footer className=\"footer\">\n      <p>&copy; 2024 Your Company. All rights reserved.</p>\n    </footer>\n  );\n}\n\nexport default Footer;"
+            },
+            "styles": {
+                "file": "Footer.css",
+                "code": "/* Footer.css */\n.footer {\n  background-color: #333;\n  color: white;\n  text-align: center;\n  padding: 10px 0;\n  position: fixed;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n}"
+            }
+        },
+        "properties": [],
+        "references": []
+    },
+    {
+        "name": "Table",
+        "description": "A component to display tabular data.",
+        "installation": "",
+        "usage": {
+            "basic": {
+                "component": "Table.js",
+                "code": "import React from 'react';\nimport './Table.css';\n\nfunction Table({ data }) {\n  return (\n    <table className=\"table\">\n      <thead>\n        <tr>\n          {Object.keys(data[0]).map((key) => (\n            <th key={key}>{key}</th>\n          ))}\n        </tr>\n      </thead>\n      <tbody>\n        {data.map((row, index) => (\n          <tr key={index}>\n            {Object.values(row).map((value, i) => (\n              <td key={i}>{value}</td>\n            ))}\n          </tr>\n        ))}\n      </tbody>\n    </table>\n  );\n}\n\nexport default Table;"
+            },
+            "styles": {
+                "file": "Table.css",
+                "code": "/* Table.css */\n.table {\n  width: 100%;\n  border-collapse: collapse;\n}\n\n.table th, .table td {\n  border: 1px solid #ddd;\n  padding: 8px;\n}\n\n.table th {\n  background-color: #f2f2f2;\n  text-align: left;\n}\n"
+            }
+        },
+        "properties": [
+            {
+                "name": "data",
+                "description": "The data to display in the table.",
+                "example": "<Table data={[{ name: 'John', age: 28 }, { name: 'Jane', age: 26 }]} />"
+            }
+        ],
+        "references": []
+    },
+    {
+        "name": "Form",
+        "description": "A component to create forms for user input.",
+        "installation": "",
+        "usage": {
+            "basic": {
+                "component": "Form.js",
+                "code": "import React, { useState } from 'react';\nimport './Form.css';\n\nfunction Form() {\n  const [formData, setFormData] = useState({ name: '', email: '' });\n\n  const handleChange = (e) => {\n    const { name, value } = e.target;\n    setFormData({ ...formData, [name]: value });\n  };\n\n  const handleSubmit = (e) => {\n    e.preventDefault();\n    console.log(formData);\n  };\n\n  return (\n    <form onSubmit={handleSubmit} className=\"form\">\n      <div className=\"form-group\">\n        <label htmlFor=\"name\">Name:</label>\n        <input type=\"text\" id=\"name\" name=\"name\" value={formData.name} onChange={handleChange} />\n      </div>\n      <div className=\"form-group\">\n        <label htmlFor=\"email\">Email:</label>\n        <input type=\"email\" id=\"email\" name=\"email\" value={formData.email} onChange={handleChange} />\n      </div>\n      <button type=\"submit\">Submit</button>\n    </form>\n  );\n}\n\nexport default Form;"
+            },
+            "styles": {
+                "file": "Form.css",
+                "code": "/* Form.css */\n.form {\n  max-width: 600px;\n  margin: 0 auto;\n  padding: 20px;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  background-color: #f9f9f9;\n}\n\n.form-group {\n  margin-bottom: 15px;\n}\n\n.form-group label {\n  display: block;\n  margin-bottom: 5px;\n}\n\n.form-group input {\n  width: 100%;\n  padding: 8px;\n  box-sizing: border-box;\n}\n\nbutton {\n  padding: 10px 15px;\n  background-color: #28a745;\n  color: white;\n  border: none;\n  cursor: pointer;\n  border-radius: 4px;\n}\n\nbutton:hover {\n  background-color: #218838;\n}\n"
+            }
+        },
+        "properties": [
+            {
+                "name": "formData",
+                "description": "State object to hold form input values.",
+                "example": "const [formData, setFormData] = useState({ name: '', email: '' });"
+            },
+            {
+                "name": "handleChange",
+                "description": "Function to handle input changes.",
+                "example": "const handleChange = (e) => {\n  const { name, value } = e.target;\n  setFormData({ ...formData, [name]: value });\n};"
+            },
+            {
+                "name": "handleSubmit",
+                "description": "Function to handle form submission.",
+                "example": "const handleSubmit = (e) => {\n  e.preventDefault();\n  console.log(formData);\n};"
+            }
+        ],
+        "references": []
+    }
+]
