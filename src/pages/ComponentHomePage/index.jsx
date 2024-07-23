@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/ComponentHomePage.module.css";
+import styles from "./ComponentHomePage.module.css";
 
 export function ComponentHomePage() {
   return (

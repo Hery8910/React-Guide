@@ -1,7 +1,7 @@
 .ul {
     list-style: none;
     padding: 1rem;
-    font-size: 1.2rem;
+    font-size: calc(14px + 0.5vw);
     border-right: 2px solid #f6f5f7;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -9,4 +9,5 @@
     color: #f6f5f7;
     text-decoration: none;
     padding: .6rem;
+    
 }

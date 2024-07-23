@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import styles from "../styles/SideBar.module.css"
+import styles from "./SideBar.module.css"
 export function SideBar({array = []}) {
 
     return(

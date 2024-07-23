@@ -1,0 +1,30 @@
+.main {
+  color: #f6f5f7;
+  width: 60vw;
+  margin: 0 auto;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: calc(12px + 0.5vw);
+}
+.header {
+  margin: 20vh auto;
+  display: flex;
+  align-items: center;
+  gap: 10vw;
+}
+.h1 {
+  font-size: 3rem;
+  margin-bottom: 5rem;
+}
+.span {
+  color: #57c4db;
+}
+
+.h2 {
+  font-size: 2rem;
+  color: #f6f5f79a;
+  margin-bottom: 2rem;
+}
+.p {
+    text-align: justify;
+}

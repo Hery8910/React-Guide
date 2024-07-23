@@ -5,4 +5,5 @@
   width: 50vw;
   margin: 0 auto;
   text-align: justify;  
+  font-size: calc(12px + 0.5vw);
 }

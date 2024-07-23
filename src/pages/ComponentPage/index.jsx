@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
-import { SideBar } from '../components/SideBar'
-import { fetchData } from '../hooks/fetchData'
-import { Component } from '../components/Component';
-import styles from "../styles/ComponentPage.module.css"
+import { SideBar } from '../../components/SideBar'
+import { fetchData } from '../../hooks/fetchData'
+import { Component } from '../../components/Component';
+import styles from "./ComponentPage.module.css"
 
 export function ComponentPage() {
     const { data, loading, error } = fetchData('/components.json');

@@ -1,410 +1,524 @@
 [
-    {
-        "name": "RenderCode",
-        "description": "The RenderCode component is designed to display code snippets with syntax highlighting and provide a convenient copy-to-clipboard feature. It enhances the user experience by allowing easy copying of code, making it perfect for documentation and tutorials. The component uses the SyntaxHighlighter for rendering code with highlighting, and the FaRegCopy icon from react-icons for the copy button. This icon visually indicates the copy functionality to the user.",
-        "installation": "npm install react-syntax-highlighter react-icons",
-        "usage": {
-          "basic": {
-            "component": "RenderCode.js",
-            "code": "import React, { useState } from \"react\"; // Import React and useState hook\nimport { FaRegCopy } from \"react-icons/fa6\"; // Import copy icon from react-icons\nimport { Light as SyntaxHighlighter } from \"react-syntax-highlighter\"; // Import SyntaxHighlighter component\nimport { atelierDuneDark } from \"react-syntax-highlighter/dist/esm/styles/hljs\"; // Import syntax highlighting style\nimport styles from \"../styles/RenderCode.module.css\"; // Import CSS module styles\n\nexport function RenderCode({ code }) {\n  const [copied, setCopied] = useState(false); // State to track if code is copied\n\n  const copyToClipboard = () => {\n    navigator.clipboard.writeText(code) // Copy code to clipboard\n      .then(() => {\n        setCopied(true); // Set copied state to true\n        setTimeout(() => {\n          setCopied(false); // Reset copied state after 1 second\n        }, 1000);\n      })\n      .catch((err) => {\n        console.error(\"Could not copy text: \", err); // Log error if copying fails\n      });\n  };\n\n  return (\n    <div className={styles.div}>\n      <SyntaxHighlighter\n        className={styles.code}\n        language=\"javascript\"\n        style={atelierDuneDark}\n      >\n        {code}\n      </SyntaxHighlighter>\n      <button onClick={copyToClipboard} className={styles.button}>\n        {copied && <span className=\"copy-message\">Copied</span>}\n        {copied ? \"\" : <FaRegCopy />}\n      </button>\n    </div>\n  );\n}\n"
-          },
-          "styles": {
-            "file": "RenderCode.module.css",
-            "code": ".div {\n  position: relative;\n  padding: 1rem;\n}\n.code {\n  border-radius: 5px;\n  box-shadow: 0px 1px 3px #f6f5f73f;\n  padding: 1rem;\n  overflow: auto;\n  font-family: \"Courier New\", Courier, monospace;\n  font-size: 1rem;\n}\n.button {\n  position: absolute;\n  top: 5px;\n  right: 10px;\n  z-index: 9;\n  border: 0;\n  font-size: 1.2rem;\n  font-weight: 100;\n  background-color: transparent;\n  color: #f6f5f7;\n  cursor: pointer;\n}\n"
-          }
-        },
-        "properties": [
-          {
-            "name": "code",
-            "description": "The code to be displayed and copied.",
-            "example": "<RenderCode code={`const a = 1;`} />"
-          }
-        ],
-        "references": [
-          {
-            "name": "SyntaxHighlighter Documentation",
-            "url": "https://github.com/react-syntax-highlighter/react-syntax-highlighter"
-          },
-          {
-            "name": "React Icons Documentation",
-            "url": "https://react-icons.github.io/react-icons/"
-          }
-        ]
+  {
+    "name": "RenderCode",
+    "description": "The RenderCode component is designed to display code snippets with syntax highlighting and provide a convenient copy-to-clipboard feature. It enhances the user experience by allowing easy copying of code, making it perfect for documentation and tutorials. The component uses the SyntaxHighlighter for rendering code with highlighting, and the FaRegCopy icon from react-icons for the copy button. This icon visually indicates the copy functionality to the user, ensuring they can easily recognize and use the feature.",
+    "installation": {
+      "description": "There is no need to install the RenderCode component itself. However, if you want to use the same icon and component for rendering the code, you should install both react-syntax-highlighter and react-icons from the console. If you prefer to use different icons or another component for rendering the code, installation is not necessary.",
+      "command": "npm install react-syntax-highlighter react-icons"
+    },
+    "usage": {
+      "basic": {
+        "component": "RenderCode.js",
+        "code": "import React, { useState } from \"react\"; // Import React and useState hook\nimport { FaRegCopy } from \"react-icons/fa6\"; // Import copy icon from react-icons\nimport { Light as SyntaxHighlighter } from \"react-syntax-highlighter\"; // Import SyntaxHighlighter component\nimport { atelierDuneDark } from \"react-syntax-highlighter/dist/esm/styles/hljs\"; // Import syntax highlighting style\nimport styles from \"../styles/RenderCode.module.css\"; // Import CSS module styles\n\nexport function RenderCode({ code }) {\n  const [copied, setCopied] = useState(false); // State to track if code is copied\n\n  const copyToClipboard = () => {\n    navigator.clipboard.writeText(code) // Copy code to clipboard\n      .then(() => {\n        setCopied(true); // Set copied state to true\n        setTimeout(() => {\n          setCopied(false); // Reset copied state after 1 second\n        }, 1000);\n      })\n      .catch((err) => {\n        console.error(\"Could not copy text: \", err); // Log error if copying fails\n      });\n  };\n\n  return (\n    <div className={styles.div}>\n      <SyntaxHighlighter\n        className={styles.code}\n        language=\"javascript\"\n        style={atelierDuneDark}\n      >\n        {code}\n      </SyntaxHighlighter>\n      <button onClick={copyToClipboard} className={styles.button}>\n        {copied && <span className=\"copy-message\">Copied</span>}\n        {copied ? \"\" : <FaRegCopy />}\n      </button>\n    </div>\n  );\n}\n",
+        "description": "This code demonstrates how to use the RenderCode component to display code with syntax highlighting and a copy-to-clipboard feature. The component uses the useState hook to manage the copied state, and the navigator.clipboard API to copy text to the clipboard."
       }
-      
-      ,
-    {
-        "name": "Button",
-        "description": "The <button> HTML element is an interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it then performs an action, such as submitting a form or opening a dialog.",
-        "installation": "npm install react-button --save",
-        "usage": {
-            "basic": {
-                "component": "Button.js",
-                "code": "import React from 'react';\nimport './Button.css';\n\nfunction Button({ label, onClick }) {\n  return (\n    <button className=\"button\" onClick={onClick}>\n      {label}\n    </button>\n  );\n}\n\nexport default Button;"
-            },
-            "styles": {
-                "file": "Button.css",
-                "code": "/* Button.css */\n.button {\n  background-color: #4CAF50;\n  border: none;\n  color: white;\n  padding: 15px 32px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  margin: 4px 2px;\n  cursor: pointer;\n}\n\n.button:hover {\n  background-color: #45a049;\n}"
-            }
-        },
-        "properties": [
-            {
-                "name": "label",
-                "description": "The text to display on the button.",
-                "example": "<Button label=\"Click Me\" onClick={handleClick} />"
-            },
-            {
-                "name": "onClick",
-                "description": "Function to call when the button is clicked.",
-                "example": "<Button label=\"Click Me\" onClick={handleClick} />"
-            }
-        ],
-        "references": [
-            {
-                "name": "Official Documentation",
-                "url": "https://react-bootstrap.github.io/components/buttons/"
-            }
-        ]
     },
-    {
-        "name": "Card",
-        "description": "A component to display content in a card layout.",
-        "installation": "npm install react-card --save",
-        "usage": {
-            "basic": {
-                "component": "Card.js",
-                "code": "import React from 'react';\nimport './Card.css';\n\nfunction Card({ title, content }) {\n  return (\n    <div className=\"card\">\n      <h3>{title}</h3>\n      <p>{content}</p>\n    </div>\n  );\n}\n\nexport default Card;"
-            },
-            "styles": {
-                "file": "Card.css",
-                "code": "/* Card.css */\n.card {\n  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);\n  transition: 0.3s;\n  padding: 16px;\n}\n\n.card:hover {\n  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);\n}\n\n.card h3 {\n  margin-top: 0;\n}"
-            }
-        },
-        "properties": [
-            {
-                "name": "title",
-                "description": "The title of the card.",
-                "example": "<Card title=\"Card Title\" content=\"This is some content\" />"
-            },
-            {
-                "name": "content",
-                "description": "The content to display in the card.",
-                "example": "<Card title=\"Card Title\" content=\"This is some content\" />"
-            }
-        ],
-        "references": [
-            {
-                "name": "Official Documentation",
-                "url": "https://react-bootstrap.github.io/components/cards/"
-            }
-        ]
+    "styles": {
+      "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
+      "file": "RenderCode.module.css",
+      "code": ".div {\n  position: relative;\n  padding: 1rem;\n}\n.code {\n  border-radius: 5px;\n  box-shadow: 0px 1px 3px #f6f5f73f;\n  padding: 1rem;\n  overflow: auto;\n  font-family: \"Courier New\", Courier, monospace;\n  font-size: 1rem;\n}\n.button {\n  position: absolute;\n  top: 5px;\n  right: 10px;\n  border: 0;\n  font-size: 1.2rem;\n  font-weight: 100;\n  background-color: transparent;\n  color: #f6f5f7;\n  cursor: pointer;\n}\n"
     },
-    {
-        "name": "Carousel",
-        "description": "A component to create a carousel/slider for images or content.",
-        "installation": "npm install react-carousel --save",
-        "usage": {
-            "basic": {
-                "component": "Carousel.js",
-                "code": "import React from 'react';\nimport './Carousel.css';\n\nfunction Carousel({ items }) {\n  return (\n    <div className=\"carousel\">\n      {items.map((item, index) => (\n        <div key={index} className=\"carousel-item\">\n          {item}\n        </div>\n      ))}\n    </div>\n  );\n}\n\nexport default Carousel;"
-            },
-            "styles": {
-                "file": "Carousel.css",
-                "code": "/* Carousel.css */\n.carousel {\n  display: flex;\n  overflow-x: scroll;\n  scroll-snap-type: x mandatory;\n}\n\n.carousel-item {\n  flex: none;\n  scroll-snap-align: start;\n  width: 100%;\n  transition: transform 0.5s ease;\n}\n"
-            }
-        },
-        "properties": [
-            {
-                "name": "items",
-                "description": "An array of items to display in the carousel.",
-                "example": "<Carousel items={[<img src=\"image1.jpg\" />, <img src=\"image2.jpg\" />]} />"
-            }
-        ],
-        "references": [
-            {
-                "name": "Official Documentation",
-                "url": "https://react-bootstrap.github.io/components/carousel/"
-            }
-        ]
-    },
-    {
-        "name": "Navbar",
-        "description": "A custom sliding navbar component created using React without external libraries.",
-        "installation": "npm install react-burger-menu --save",
-        "usage": {
-            "basic": {
-                "component": "Navbar.js",
-                "code": "import React, { useState } from 'react';\nimport './Navbar.css';\n\nfunction Navbar() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  const toggleMenu = () => {\n    setIsOpen(!isOpen);\n  };\n\n  return (\n    <div>\n      <div className=\"burger-button\" onClick={toggleMenu}>\n        &#9776;\n      </div>\n      <nav className={`menu ${isOpen ? 'open' : ''}`}>\n        <a className=\"menu-item\" href=\"#home\">Home</a>\n        <a className=\"menu-item\" href=\"#about\">About</a>\n        <a className=\"menu-item\" href=\"#product\">Product</a>\n        <a className=\"menu-item\" href=\"#blog\">Blog</a>\n      </nav>\n    </div>\n  );\n}\n\nexport default Navbar;"
-            },
-            "styles": {
-                "file": "Navbar.css",
-                "code": "/* Navbar.css */\nbody {\n  font-family: Arial, sans-serif;\n}\n\n.burger-button {\n  position: fixed;\n  top: 15px;\n  left: 15px;\n  font-size: 30px;\n  cursor: pointer;\n  z-index: 1000;\n}\n\n.menu {\n  position: fixed;\n  top: 0;\n  left: -250px;\n  width: 250px;\n  height: 100%;\n  background-color: #333;\n  overflow-x: hidden;\n  transition: 0.5s;\n  padding-top: 60px;\n}\n\n.menu.open {\n  left: 0;\n}\n\n.menu-item {\n  padding: 8px 8px 8px 32px;\n  text-decoration: none;\n  font-size: 25px;\n  color: white;\n  display: block;\n  transition: 0.3s;\n}\n\n.menu-item:hover {\n  background-color: #575757;\n}"
-            }
-        },
-        "properties": [
-            {
-                "name": "isOpen",
-                "description": "Controls whether the menu is open.",
-                "example": "<Menu isOpen={true} onStateChange={(state) => handleStateChange(state)}>"
-            },
-            {
-                "name": "onStateChange",
-                "description": "Function called when the state of the menu changes.",
-                "example": "<Menu isOpen={true} onStateChange={(state) => handleStateChange(state)}>"
-            }
-        ],
-        "references": [
-            {
-                "name": "Official Documentation",
-                "url": "https://github.com/negomi/react-burger-menu"
-            },
-            {
-                "name": "Live Demo",
-                "url": "https://negomi.github.io/react-burger-menu/"
-            }
-        ]
-    },
-    {
-        "name": "Pagination",
-        "description": "A component to add pagination controls to your application.",
-        "installation": "npm install react-paginate --save",
-        "usage": {
-            "basic": {
-                "component": "Pagination.js",
-                "code": "import React from 'react';\nimport ReactPaginate from 'react-paginate';\nimport './Pagination.css';\n\nfunction Pagination({ pageCount, onPageChange }) {\n  return (\n    <ReactPaginate\n      previousLabel={'previous'}\n      nextLabel={'next'}\n      breakLabel={'...'}\n      breakClassName={'break-me'}\n      pageCount={pageCount}\n      marginPagesDisplayed={2}\n      pageRangeDisplayed={5}\n      onPageChange={onPageChange}\n      containerClassName={'pagination'}\n      subContainerClassName={'pages pagination'}\n      activeClassName={'active'}\n    />\n  );\n}\n\nexport default Pagination;"
-            },
-            "styles": {
-                "file": "Pagination.css",
-                "code": "/* Pagination.css */\n.pagination {\n  display: flex;\n  justify-content: center;\n  padding: 10px 0;\n}\n\n.pagination li {\n  display: inline;\n  margin: 0 5px;\n}\n\n.pagination li a {\n  text-decoration: none;\n  color: #007bff;\n  padding: 5px 10px;\n}\n\n.pagination li.active a {\n  font-weight: bold;\n  color: #000;\n}"
-            }
-        },
-        "properties": [
-            {
-                "name": "pageCount",
-                "description": "The total number of pages.",
-                "example": "<Pagination pageCount={10} onPageChange={handlePageChange} />"
-            },
-            {
-                "name": "onPageChange",
-                "description": "Function to call when the page is changed.",
-                "example": "<Pagination pageCount={10} onPageChange={handlePageChange} />"
-            }
-        ],
-        "references": [
-            {
-                "name": "Official Documentation",
-                "url": "https://github.com/AdeleD/react-paginate"
-            }
-        ]
-    },
-    {
-        "name": "Placeholder",
-        "description": "A component to display placeholder content while the actual content is loading.",
-        "installation": "npm install react-placeholder --save",
-        "usage": {
-            "basic": {
-                "component": "Placeholder.js",
-                "code": "import React from 'react';\nimport ReactPlaceholder from 'react-placeholder';\nimport 'react-placeholder/lib/reactPlaceholder.css';\n\nfunction Placeholder({ ready, children }) {\n  return (\n    <ReactPlaceholder type=\"text\" rows={7} ready={ready}>\n      {children}\n    </ReactPlaceholder>\n  );\n}\n\nexport default Placeholder;"
-            },
-            "styles": {
-                "file": "Placeholder.css",
-                "code": "/* Placeholder.css */\n.react-placeholder {\n  background-color: #eee;\n  border-radius: 4px;\n  margin-bottom: 10px;\n}"
-            }
-        },
-        "properties": [
-            {
-                "name": "ready",
-                "description": "Boolean to indicate if the actual content is ready to be displayed.",
-                "example": "<Placeholder ready={false}><YourComponent /></Placeholder>"
-            },
-            {
-                "name": "children",
-                "description": "The actual content to display when ready.",
-                "example": "<Placeholder ready={false}><YourComponent /></Placeholder>"
-            }
-        ],
-        "references": [
-            {
-                "name": "Official Documentation",
-                "url": "https://github.com/buildo/react-placeholder"
-            }
-        ]
-    },
-    {
-        "name": "Popover",
-        "description": "A component to display popovers or tooltips on hover or click.",
-        "installation": "npm install react-bootstrap --save",
-        "usage": {
-            "basic": {
-                "component": "Popover.js",
-                "code": "import React from 'react';\nimport { Popover, OverlayTrigger, Button } from 'react-bootstrap';\nimport 'bootstrap/dist/css/bootstrap.min.css';\n\nfunction PopoverComponent() {\n  const popover = (\n    <Popover id=\"popover-basic\">\n      <Popover.Header as=\"h3\">Popover Title</Popover.Header>\n      <Popover.Body>\n        And here's some <strong>amazing</strong> content. It's very engaging. right?\n      </Popover.Body>\n    </Popover>\n  );\n\n  return (\n    <OverlayTrigger trigger=\"click\" placement=\"right\" overlay={popover}>\n      <Button variant=\"success\">Click me to see</Button>\n    </OverlayTrigger>\n  );\n}\n\nexport default PopoverComponent;"
-            },
-            "styles": {
-                "file": "",
-                "code": ""
-            }
-        },
-        "properties": [
-            {
-                "name": "placement",
-                "description": "The position of the popover relative to the target.",
-                "example": "<OverlayTrigger trigger=\"click\" placement=\"right\" overlay={popover}>"
-            },
-            {
-                "name": "trigger",
-                "description": "The event that triggers the popover.",
-                "example": "<OverlayTrigger trigger=\"click\" placement=\"right\" overlay={popover}>"
-            }
-        ],
-        "references": [
-            {
-                "name": "Official Documentation",
-                "url": "https://react-bootstrap.github.io/components/overlays/#popovers"
-            }
-        ]
-    },
-    {
-        "name": "ScrollSpy",
-        "description": "A component to automatically update navigation or perform actions based on scroll position.",
-        "installation": "npm install react-scrollspy --save",
-        "usage": {
-            "basic": {
-                "component": "ScrollSpy.js",
-                "code": "import React from 'react';\nimport Scrollspy from 'react-scrollspy';\n\nfunction ScrollSpyComponent() {\n  return (\n    <div>\n      <Scrollspy items={['section-1', 'section-2', 'section-3']} currentClassName=\"is-current\">\n        <li><a href=\"#section-1\">Section 1</a></li>\n        <li><a href=\"#section-2\">Section 2</a></li>\n        <li><a href=\"#section-3\">Section 3</a></li>\n      </Scrollspy>\n      <div id=\"section-1\">Section 1 Content</div>\n      <div id=\"section-2\">Section 2 Content</div>\n      <div id=\"section-3\">Section 3 Content</div>\n    </div>\n  );\n}\n\nexport default ScrollSpyComponent;"
-            },
-            "styles": {
-                "file": "ScrollSpy.css",
-                "code": "/* ScrollSpy.css */\n.is-current a {\n  color: red;\n  font-weight: bold;\n}"
-            }
-        },
-        "properties": [
-            {
-                "name": "items",
-                "description": "An array of section IDs to spy on.",
-                "example": "<Scrollspy items={['section-1', 'section-2', 'section-3']} currentClassName=\"is-current\">"
-            },
-            {
-                "name": "currentClassName",
-                "description": "Class name to apply to the current item.",
-                "example": "<Scrollspy items={['section-1', 'section-2', 'section-3']} currentClassName=\"is-current\">"
-            }
-        ],
-        "references": [
-            {
-                "name": "Official Documentation",
-                "url": "https://github.com/makotot/react-scrollspy"
-            }
-        ]
-    },
-    {
-        "name": "Spinner",
-        "description": "A component to display a loading spinner.",
-        "installation": "npm install react-loader-spinner --save",
-        "usage": {
-            "basic": {
-                "component": "Spinner.js",
-                "code": "import React from 'react';\nimport { Circles } from 'react-loader-spinner';\nimport 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';\n\nfunction Spinner() {\n  return (\n    <Circles color=\"#00BFFF\" height={80} width={80} />\n  );\n}\n\nexport default Spinner;"
-            },
-            "styles": {
-                "file": "",
-                "code": ""
-            }
-        },
-        "properties": [
-            {
-                "name": "color",
-                "description": "The color of the spinner.",
-                "example": "<Circles color=\"#00BFFF\" height={80} width={80} />"
-            },
-            {
-                "name": "height",
-                "description": "The height of the spinner.",
-                "example": "<Circles color=\"#00BFFF\" height={80} width={80} />"
-            },
-            {
-                "name": "width",
-                "description": "The width of the spinner.",
-                "example": "<Circles color=\"#00BFFF\" height={80} width={80} />"
-            }
-        ],
-        "references": [
-            {
-                "name": "Official Documentation",
-                "url": "https://www.npmjs.com/package/react-loader-spinner"
-            }
-        ]
-    },
-    {
-        "name": "Footer",
-        "description": "A component to create a footer for your application.",
-        "installation": "",
-        "usage": {
-            "basic": {
-                "component": "Footer.js",
-                "code": "import React from 'react';\nimport './Footer.css';\n\nfunction Footer() {\n  return (\n    <footer className=\"footer\">\n      <p>&copy; 2024 Your Company. All rights reserved.</p>\n    </footer>\n  );\n}\n\nexport default Footer;"
-            },
-            "styles": {
-                "file": "Footer.css",
-                "code": "/* Footer.css */\n.footer {\n  background-color: #333;\n  color: white;\n  text-align: center;\n  padding: 10px 0;\n  position: fixed;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n}"
-            }
-        },
-        "properties": [],
-        "references": []
-    },
-    {
-        "name": "Table",
-        "description": "A component to display tabular data.",
-        "installation": "",
-        "usage": {
-            "basic": {
-                "component": "Table.js",
-                "code": "import React from 'react';\nimport './Table.css';\n\nfunction Table({ data }) {\n  return (\n    <table className=\"table\">\n      <thead>\n        <tr>\n          {Object.keys(data[0]).map((key) => (\n            <th key={key}>{key}</th>\n          ))}\n        </tr>\n      </thead>\n      <tbody>\n        {data.map((row, index) => (\n          <tr key={index}>\n            {Object.values(row).map((value, i) => (\n              <td key={i}>{value}</td>\n            ))}\n          </tr>\n        ))}\n      </tbody>\n    </table>\n  );\n}\n\nexport default Table;"
-            },
-            "styles": {
-                "file": "Table.css",
-                "code": "/* Table.css */\n.table {\n  width: 100%;\n  border-collapse: collapse;\n}\n\n.table th, .table td {\n  border: 1px solid #ddd;\n  padding: 8px;\n}\n\n.table th {\n  background-color: #f2f2f2;\n  text-align: left;\n}\n"
-            }
-        },
-        "properties": [
-            {
-                "name": "data",
-                "description": "The data to display in the table.",
-                "example": "<Table data={[{ name: 'John', age: 28 }, { name: 'Jane', age: 26 }]} />"
-            }
-        ],
-        "references": []
-    },
-    {
-        "name": "Form",
-        "description": "A component to create forms for user input.",
-        "installation": "",
-        "usage": {
-            "basic": {
-                "component": "Form.js",
-                "code": "import React, { useState } from 'react';\nimport './Form.css';\n\nfunction Form() {\n  const [formData, setFormData] = useState({ name: '', email: '' });\n\n  const handleChange = (e) => {\n    const { name, value } = e.target;\n    setFormData({ ...formData, [name]: value });\n  };\n\n  const handleSubmit = (e) => {\n    e.preventDefault();\n    console.log(formData);\n  };\n\n  return (\n    <form onSubmit={handleSubmit} className=\"form\">\n      <div className=\"form-group\">\n        <label htmlFor=\"name\">Name:</label>\n        <input type=\"text\" id=\"name\" name=\"name\" value={formData.name} onChange={handleChange} />\n      </div>\n      <div className=\"form-group\">\n        <label htmlFor=\"email\">Email:</label>\n        <input type=\"email\" id=\"email\" name=\"email\" value={formData.email} onChange={handleChange} />\n      </div>\n      <button type=\"submit\">Submit</button>\n    </form>\n  );\n}\n\nexport default Form;"
-            },
-            "styles": {
-                "file": "Form.css",
-                "code": "/* Form.css */\n.form {\n  max-width: 600px;\n  margin: 0 auto;\n  padding: 20px;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  background-color: #f9f9f9;\n}\n\n.form-group {\n  margin-bottom: 15px;\n}\n\n.form-group label {\n  display: block;\n  margin-bottom: 5px;\n}\n\n.form-group input {\n  width: 100%;\n  padding: 8px;\n  box-sizing: border-box;\n}\n\nbutton {\n  padding: 10px 15px;\n  background-color: #28a745;\n  color: white;\n  border: none;\n  cursor: pointer;\n  border-radius: 4px;\n}\n\nbutton:hover {\n  background-color: #218838;\n}\n"
-            }
-        },
-        "properties": [
-            {
-                "name": "formData",
-                "description": "State object to hold form input values.",
-                "example": "const [formData, setFormData] = useState({ name: '', email: '' });"
-            },
-            {
-                "name": "handleChange",
-                "description": "Function to handle input changes.",
-                "example": "const handleChange = (e) => {\n  const { name, value } = e.target;\n  setFormData({ ...formData, [name]: value });\n};"
-            },
-            {
-                "name": "handleSubmit",
-                "description": "Function to handle form submission.",
-                "example": "const handleSubmit = (e) => {\n  e.preventDefault();\n  console.log(formData);\n};"
-            }
-        ],
-        "references": []
+    "properties": [
+      {
+        "name": "code",
+        "description": "The code to be displayed and copied. Pass the code as a string to this prop.",
+        "example": "<RenderCode code={`const a = 1;`} />"
+      }
+    ],
+    "references": [
+      {
+        "name": "SyntaxHighlighter Documentation",
+        "url": "https://github.com/react-syntax-highlighter/react-syntax-highlighter"
+      },
+      {
+        "name": "React Icons Documentation",
+        "url": "https://react-icons.github.io/react-icons/"
+      }
+    ],
+    "example": {
+      "description": "This is an example of the HooksPage component in use.",
+      "url": "https://via.placeholder.com/300"
     }
+  },
+  {
+    "name": "Button",
+    "description": "The <button> HTML element is an interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it then performs an action, such as submitting a form or opening a dialog. This React component allows you to create customizable buttons easily.",
+    "installation": {
+      "description": "There is no need to install the Button component itself. However, if you want to use the specific styles provided, you should create a CSS file and import it into your component.",
+      "command": ""
+    },
+    "usage": {
+      "basic": {
+        "component": "Button.js",
+        "code": "import React from 'react';\nimport './Button.css';\n\nfunction Button({ label, onClick }) {\n  return (\n    <button className=\"button\" onClick={onClick}>\n      {label}\n    </button>\n  );\n}\n\nexport default Button;",
+        "description": "This code demonstrates how to use the Button component with a label and an onClick handler. The component renders a button with the provided label and calls the onClick function when the button is clicked."
+      }
+    },
+    "styles": {
+      "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
+      "file": "Button.css",
+      "code": "/* Button.css */\n.button {\n  background-color: #4CAF50;\n  border: none;\n  color: white;\n  padding: 15px 32px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  margin: 4px 2px;\n  cursor: pointer;\n}\n\n.button:hover {\n  background-color: #45a049;\n}"
+    },
+    "properties": [
+      {
+        "name": "label",
+        "description": "The text to display on the button.",
+        "example": "<Button label=\"Click Me\" onClick={handleClick} />"
+      },
+      {
+        "name": "onClick",
+        "description": "Function to call when the button is clicked.",
+        "example": "<Button label=\"Click Me\" onClick={handleClick} />"
+      }
+    ],
+    "references": [
+      {
+        "name": "Official Documentation",
+        "url": "https://react-bootstrap.github.io/components/buttons/"
+      }
+    ],
+    "example": {
+      "description": "This is an example of the HooksPage component in use.",
+      "url": "https://via.placeholder.com/300"
+    }
+  },
+  {
+    "name": "Card",
+    "description": "A component to display content in a card layout. Cards are surfaces that display content and actions on a single topic. They should be easy to scan for relevant and actionable information.",
+    "installation": {
+      "description": "There is no need to install the Card component itself. However, if you want to use the specific styles provided, you should create a CSS file and import it into your component.",
+      "command": ""
+    },
+    "usage": {
+      "basic": {
+        "component": "Card.js",
+        "code": "import React from 'react';\nimport styles from './Card.module.css';\n\nexport function Card() {\n  const product = {\n    image: 'https://via.placeholder.com/300',\n    name: 'Product Name',\n    description: 'This is a short description of the product.',\n    price: '29.99'\n  };\n\n  function handleClick() {\n    // Add to cart function\n  }\n\n  return (\n    <div className={styles.product_card}>\n      <img src={product.image} alt={product.name} className={styles.product_image} />\n      <div className={styles.product_details}>\n        <h2 className={styles.product_name}>{product.name}</h2>\n        <p className={styles.product_description}>{product.description}</p>\n        <div className={styles.product_price}>${product.price}</div>\n        <button className={styles.add_to_cart_button} onClick={handleClick}>Add to Cart</button>\n      </div>\n    </div>\n  );\n};",
+        "description": "This code demonstrates how to use the Card component to display a title and content in a card layout. The component renders a card with the provided title and content."
+      }
+    },
+    "styles": {
+      "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
+      "file": "Card.css",
+      "code": ".product_card {\n  padding: 1rem;\n  border-radius: 8px;\n  overflow: hidden;\n  background-color: #b1b1b14c;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s;\n  max-width: 300px;\n  margin: 10vw;\n  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;\n}\n\n.product_card:hover {\n  transform: scale(1.05);\n}\n\n.product_image {\n  width: 100%;\n  height: auto;\n  border-radius: 4px;\n  margin-bottom: 5px;\n}\n\n.product_details {\n  padding: 16px;\n  border-radius: 4px;\n}\n\n.product_name {\n  font-size: 1.5em;\n  margin: 0;\n  color: #ffffff;\n}\n\n.product_description {\n  color: #757575;\n  margin: 8px 0;\n}\n\n.product_price {\n  font-size: 1.2em;\n  color: #57c4db;\n  margin-bottom: 16px;\n}\n\n.add_to_cart_button {\n  background-color: #57c4db;\n  color: #ffffff;\n  border: none;\n  padding: 10px 16px;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 0.3s;\n}\n\n.add_to_cart_button:hover {\n  background-color: #57c4db;\n}\n"
+    },
+    "properties": [
+      {
+        "name": "title",
+        "description": "The title of the card.",
+        "example": "<Card title=\"Card Title\" content=\"This is some content\" />"
+      },
+      {
+        "name": "content",
+        "description": "The content to display in the card.",
+        "example": "<Card title=\"Card Title\" content=\"This is some content\" />"
+      }
+    ],
+    "references": [
+      {
+        "name": "Official Documentation",
+        "url": "https://react-bootstrap.github.io/components/cards/"
+      }
+    ],
+    "example": {
+      "description": "This is an example of the HooksPage component in use.",
+      "url": "/public/images/Card_Component.webp"
+    }
+  },
+  {
+    "name": "Carousel",
+    "description": "A component to create a carousel/slider for images or content. Carousels are a popular method to display multiple items in a single space.",
+    "installation": {
+      "description": "There is no need to install the Carousel component itself. However, if you want to use the specific styles provided, you should create a CSS file and import it into your component.",
+      "command": "npm install react-carousel --save"
+    },
+    "usage": {
+      "basic": {
+        "component": "Carousel.js",
+        "code": "import React from 'react';\nimport './Carousel.css';\n\nfunction Carousel({ items }) {\n  return (\n    <div className=\"carousel\">\n      {items.map((item, index) => (\n        <div key={index} className=\"carousel-item\">\n          {item}\n        </div>\n      ))}\n    </div>\n  );\n}\n\nexport default Carousel;",
+        "description": "This code demonstrates how to use the Carousel component to display a list of items in a sliding carousel layout. The component renders a carousel with the provided items."
+      }
+    },
+    "styles": {
+      "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
+      "file": "Carousel.css",
+      "code": "/* Carousel.css */\n.carousel {\n  display: flex;\n  overflow-x: scroll;\n  scroll-snap-type: x mandatory;\n}\n\n.carousel-item {\n  flex: none;\n  scroll-snap-align: start;\n  width: 100%;\n  transition: transform 0.5s ease;\n}\n"
+    },
+    "properties": [
+      {
+        "name": "items",
+        "description": "An array of items to display in the carousel.",
+        "example": "<Carousel items={[<img src=\"image1.jpg\" />, <img src=\"image2.jpg\" />]} />"
+      }
+    ],
+    "references": [
+      {
+        "name": "Official Documentation",
+        "url": "https://react-bootstrap.github.io/components/carousel/"
+      }
+    ],
+    "example": {
+      "description": "This is an example of the HooksPage component in use.",
+      "url": "https://via.placeholder.com/300"
+    }
+  },
+  {
+    "name": "Navbar",
+    "description": "A custom sliding navbar component created using React without external libraries. This component provides a responsive and interactive navigation menu, perfect for modern web applications. The menu can be toggled open and closed, enhancing user experience on both desktop and mobile devices.",
+    "installation": {
+      "description": "There is no need to install the Navbar component itself. However, if you want to use the same approach and styles, you should create a CSS file and import it into your component. For more advanced features, consider installing libraries like react-burger-menu.",
+      "command": "npm install react-burger-menu --save"
+    },
+    "usage": {
+      "basic": {
+        "component": "Navbar.js",
+        "code": "import React, { useState } from 'react';\nimport './Navbar.css';\n\nfunction Navbar() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  const toggleMenu = () => {\n    setIsOpen(!isOpen);\n  };\n\n  return (\n    <div>\n      <div className=\"burger-button\" onClick={toggleMenu}>\n        &#9776;\n      </div>\n      <nav className={`menu ${isOpen ? 'open' : ''}`}>\n        <a className=\"menu-item\" href=\"#home\">Home</a>\n        <a className=\"menu-item\" href=\"#about\">About</a>\n        <a className=\"menu-item\" href=\"#product\">Product</a>\n        <a className=\"menu-item\" href=\"#blog\">Blog</a>\n      </nav>\n    </div>\n  );\n}\n\nexport default Navbar;",
+        "description": "This code demonstrates how to use the Navbar component to create a sliding navigation menu. The component uses the useState hook to manage the menu's open state and toggles it with a button click."
+      }
+    },
+    "styles": {
+      "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
+      "file": "Navbar.css",
+      "code": "/* Navbar.css */\nbody {\n  font-family: Arial, sans-serif;\n}\n\n.burger-button {\n  position: fixed;\n  top: 15px;\n  left: 15px;\n  font-size: 30px;\n  cursor: pointer;\n  z-index: 1000;\n}\n\n.menu {\n  position: fixed;\n  top: 0;\n  left: -250px;\n  width: 250px;\n  height: 100%;\n  background-color: #333;\n  overflow-x: hidden;\n  transition: 0.5s;\n  padding-top: 60px;\n}\n\n.menu.open {\n  left: 0;\n}\n\n.menu-item {\n  padding: 8px 8px 8px 32px;\n  text-decoration: none;\n  font-size: 25px;\n  color: white;\n  display: block;\n  transition: 0.3s;\n}\n\n.menu-item:hover {\n  background-color: #575757;\n}"
+    },
+    "properties": [
+      {
+        "name": "isOpen",
+        "description": "Controls whether the menu is open.",
+        "example": "<Navbar isOpen={true} />"
+      },
+      {
+        "name": "onStateChange",
+        "description": "Function called when the state of the menu changes.",
+        "example": "<Navbar isOpen={true} onStateChange={(state) => handleStateChange(state)} />"
+      }
+    ],
+    "references": [
+      {
+        "name": "Official Documentation",
+        "url": "https://github.com/negomi/react-burger-menu"
+      },
+      {
+        "name": "Live Demo",
+        "url": "https://negomi.github.io/react-burger-menu/"
+      }
+    ],
+    "example": {
+      "description": "This is an example of the HooksPage component in use.",
+      "url": "https://via.placeholder.com/300"
+    }
+  },
+  {
+    "name": "Pagination",
+    "description": "A component to add pagination controls to your application. Pagination is essential for breaking up large sets of data into manageable pages, enhancing performance and user experience.",
+    "installation": {
+      "description": "There is no need to install the Pagination component itself. However, if you want to use the same approach and styles, you should create a CSS file and import it into your component. For more advanced features, consider installing libraries like react-paginate.",
+      "command": "npm install react-paginate --save"
+    },
+    "usage": {
+      "basic": {
+        "component": "Pagination.js",
+        "code": "import React from 'react';\nimport ReactPaginate from 'react-paginate';\nimport './Pagination.css';\n\nfunction Pagination({ pageCount, onPageChange }) {\n  return (\n    <ReactPaginate\n      previousLabel={'previous'}\n      nextLabel={'next'}\n      breakLabel={'...'}\n      breakClassName={'break-me'}\n      pageCount={pageCount}\n      marginPagesDisplayed={2}\n      pageRangeDisplayed={5}\n      onPageChange={onPageChange}\n      containerClassName={'pagination'}\n      subContainerClassName={'pages pagination'}\n      activeClassName={'active'}\n    />\n  );\n}\n\nexport default Pagination;",
+        "description": "This code demonstrates how to use the Pagination component to add pagination controls to your application. The component uses the ReactPaginate library to manage pagination and page changes."
+      }
+    },
+    "styles": {
+      "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
+      "file": "Pagination.css",
+      "code": "/* Pagination.css */\n.pagination {\n  display: flex;\n  justify-content: center;\n  padding: 10px 0;\n}\n\n.pagination li {\n  display: inline;\n  margin: 0 5px;\n}\n\n.pagination li a {\n  text-decoration: none;\n  color: #007bff;\n  padding: 5px 10px;\n}\n\n.pagination li.active a {\n  font-weight: bold;\n  color: #000;\n}"
+    },
+    "properties": [
+      {
+        "name": "pageCount",
+        "description": "The total number of pages.",
+        "example": "<Pagination pageCount={10} onPageChange={handlePageChange} />"
+      },
+      {
+        "name": "onPageChange",
+        "description": "Function to call when the page is changed.",
+        "example": "<Pagination pageCount={10} onPageChange={handlePageChange} />"
+      }
+    ],
+    "references": [
+      {
+        "name": "Official Documentation",
+        "url": "https://github.com/AdeleD/react-paginate"
+      }
+    ],
+    "example": {
+      "description": "This is an example of the HooksPage component in use.",
+      "url": "https://via.placeholder.com/300"
+    }
+  },
+  {
+    "name": "Placeholder",
+    "description": "A component to display placeholder content while the actual content is loading. This is useful for providing a visual cue to users that content is being loaded.",
+    "installation": {
+      "description": "There is no need to install the Placeholder component itself. However, if you want to use the same approach and styles, you should create a CSS file and import it into your component. For more advanced features, consider installing libraries like react-placeholder.",
+      "command": "npm install react-placeholder --save"
+    },
+    "usage": {
+      "basic": {
+        "component": "Placeholder.js",
+        "code": "import React from 'react';\nimport ReactPlaceholder from 'react-placeholder';\nimport 'react-placeholder/lib/reactPlaceholder.css';\n\nfunction Placeholder({ ready, children }) {\n  return (\n    <ReactPlaceholder type=\"text\" rows={7} ready={ready}>\n      {children}\n    </ReactPlaceholder>\n  );\n}\n\nexport default Placeholder;",
+        "description": "This code demonstrates how to use the Placeholder component to display placeholder content while the actual content is loading. The component uses the ReactPlaceholder library to manage placeholder rendering."
+      }
+    },
+    "styles": {
+      "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
+      "file": "Placeholder.css",
+      "code": "/* Placeholder.css */\n.react-placeholder {\n  background-color: #eee;\n  border-radius: 4px;\n  margin-bottom: 10px;\n}"
+    },
+    "properties": [
+      {
+        "name": "ready",
+        "description": "Boolean to indicate if the actual content is ready to be displayed.",
+        "example": "<Placeholder ready={false}><YourComponent /></Placeholder>"
+      },
+      {
+        "name": "children",
+        "description": "The actual content to display when ready.",
+        "example": "<Placeholder ready={false}><YourComponent /></Placeholder>"
+      }
+    ],
+    "references": [
+      {
+        "name": "Official Documentation",
+        "url": "https://github.com/buildo/react-placeholder"
+      }
+    ],
+    "example": {
+      "description": "This is an example of the HooksPage component in use.",
+      "url": "https://via.placeholder.com/300"
+    }
+  },
+  {
+    "name": "Popover",
+    "description": "A component to display popovers or tooltips on hover or click. This is useful for providing additional information or context to users without cluttering the main interface.",
+    "installation": {
+      "description": "There is no need to install the Popover component itself. However, if you want to use the same approach and styles, you should install react-bootstrap and import the necessary components. For more advanced features, consider installing libraries like react-bootstrap.",
+      "command": "npm install react-bootstrap --save"
+    },
+    "usage": {
+      "basic": {
+        "component": "Popover.js",
+        "code": "import React from 'react';\nimport { Popover, OverlayTrigger, Button } from 'react-bootstrap';\nimport 'bootstrap/dist/css/bootstrap.min.css';\n\nfunction PopoverComponent() {\n  const popover = (\n    <Popover id=\"popover-basic\">\n      <Popover.Header as=\"h3\">Popover Title</Popover.Header>\n      <Popover.Body>\n        And here's some <strong>amazing</strong> content. It's very engaging. right?\n      </Popover.Body>\n    </Popover>\n  );\n\n  return (\n    <OverlayTrigger trigger=\"click\" placement=\"right\" overlay={popover}>\n      <Button variant=\"success\">Click me to see</Button>\n    </OverlayTrigger>\n  );\n}\n\nexport default PopoverComponent;",
+        "description": "This code demonstrates how to use the Popover component to display a popover on click. The component uses the OverlayTrigger and Popover components from react-bootstrap to manage the popover display."
+      }
+    },
+    "styles": {
+      "description": "The component uses Bootstrap for styling. Make sure to include Bootstrap CSS in your project to apply these styles.",
+      "file": "",
+      "code": ""
+    },
+    "properties": [
+      {
+        "name": "placement",
+        "description": "The position of the popover relative to the target.",
+        "example": "<OverlayTrigger trigger=\"click\" placement=\"right\" overlay={popover}>"
+      },
+      {
+        "name": "trigger",
+        "description": "The event that triggers the popover.",
+        "example": "<OverlayTrigger trigger=\"click\" placement=\"right\" overlay={popover}>"
+      }
+    ],
+    "references": [
+      {
+        "name": "Official Documentation",
+        "url": "https://react-bootstrap.github.io/components/overlays/#popovers"
+      }
+    ],
+    "example": {
+      "description": "This is an example of the HooksPage component in use.",
+      "url": "https://via.placeholder.com/300"
+    }
+  },
+  {
+    "name": "ScrollSpy",
+    "description": "A component to automatically update navigation or perform actions based on scroll position. This is useful for creating dynamic and interactive navigation elements that respond to user scrolling.",
+    "installation": {
+      "description": "There is no need to install the ScrollSpy component itself. However, if you want to use the same approach and styles, you should install react-scrollspy and import the necessary components.",
+      "command": "npm install react-scrollspy --save"
+    },
+    "usage": {
+      "basic": {
+        "component": "ScrollSpy.js",
+        "code": "import React from 'react';\nimport Scrollspy from 'react-scrollspy';\n\nfunction ScrollSpyComponent() {\n  return (\n    <div>\n      <Scrollspy items={['section-1', 'section-2', 'section-3']} currentClassName=\"is-current\">\n        <li><a href=\"#section-1\">Section 1</a></li>\n        <li><a href=\"#section-2\">Section 2</a></li>\n        <li><a href=\"#section-3\">Section 3</a></li>\n      </Scrollspy>\n      <div id=\"section-1\">Section 1 Content</div>\n      <div id=\"section-2\">Section 2 Content</div>\n      <div id=\"section-3\">Section 3 Content</div>\n    </div>\n  );\n}\n\nexport default ScrollSpyComponent;",
+        "description": "This code demonstrates how to use the ScrollSpy component to update navigation based on scroll position. The component uses the Scrollspy library to track the sections and update the navigation accordingly."
+      }
+    },
+    "styles": {
+      "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
+      "file": "ScrollSpy.css",
+      "code": "/* ScrollSpy.css */\n.is-current a {\n  color: red;\n  font-weight: bold;\n}"
+    },
+    "properties": [
+      {
+        "name": "items",
+        "description": "An array of section IDs to spy on.",
+        "example": "<Scrollspy items={['section-1', 'section-2', 'section-3']} currentClassName=\"is-current\">"
+      },
+      {
+        "name": "currentClassName",
+        "description": "Class name to apply to the current item.",
+        "example": "<Scrollspy items={['section-1', 'section-2', 'section-3']} currentClassName=\"is-current\">"
+      }
+    ],
+    "references": [
+      {
+        "name": "Official Documentation",
+        "url": "https://github.com/makotot/react-scrollspy"
+      }
+    ],
+    "example": {
+      "description": "This is an example of the HooksPage component in use.",
+      "url": "https://via.placeholder.com/300"
+    }
+  },
+  {
+    "name": "Spinner",
+    "description": "A component to display a loading spinner. This is useful for indicating to users that content is being loaded, improving user experience by providing visual feedback.",
+    "installation": {
+      "description": "There is no need to install the Spinner component itself. However, if you want to use the same approach and styles, you should install react-loader-spinner and import the necessary components.",
+      "command": "npm install react-loader-spinner --save"
+    },
+    "usage": {
+      "basic": {
+        "component": "Spinner.js",
+        "code": "import React from 'react';\nimport { Circles } from 'react-loader-spinner';\nimport 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';\n\nfunction Spinner() {\n  return (\n    <Circles color=\"#00BFFF\" height={80} width={80} />\n  );\n}\n\nexport default Spinner;",
+        "description": "This code demonstrates how to use the Spinner component to display a loading spinner. The component uses the Circles component from react-loader-spinner to render the spinner."
+      }
+    },
+    "styles": {
+      "description": "The component uses default styles from the react-loader-spinner library. No additional CSS is required.",
+      "file": "",
+      "code": ""
+    },
+    "properties": [
+      {
+        "name": "color",
+        "description": "The color of the spinner.",
+        "example": "<Circles color=\"#00BFFF\" height={80} width={80} />"
+      },
+      {
+        "name": "height",
+        "description": "The height of the spinner.",
+        "example": "<Circles color=\"#00BFFF\" height={80} width={80} />"
+      },
+      {
+        "name": "width",
+        "description": "The width of the spinner.",
+        "example": "<Circles color=\"#00BFFF\" height={80} width={80} />"
+      }
+    ],
+    "references": [
+      {
+        "name": "Official Documentation",
+        "url": "https://www.npmjs.com/package/react-loader-spinner"
+      }
+    ],
+    "example": {
+      "description": "This is an example of the HooksPage component in use.",
+      "url": "https://via.placeholder.com/300"
+    }
+  },
+  {
+    "name": "Footer",
+    "description": "A component to create a footer for your application. This component provides a consistent footer section that can be used to display copyright information, links, or other relevant details at the bottom of your application.",
+    "installation": {
+      "description": "There is no need to install the Footer component itself. However, if you want to use the same approach and styles, you should create a CSS file and import it into your component.",
+      "command": ""
+    },
+    "usage": {
+      "basic": {
+        "component": "Footer.js",
+        "code": "import React from 'react';\nimport './Footer.css';\n\nfunction Footer() {\n  return (\n    <footer className=\"footer\">\n      <p>&copy; 2024 Your Company. All rights reserved.</p>\n    </footer>\n  );\n}\n\nexport default Footer;",
+        "description": "This code demonstrates how to use the Footer component to create a footer section at the bottom of your application. The component renders a footer element with a simple copyright message."
+      }
+    },
+    "styles": {
+      "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
+      "file": "Footer.css",
+      "code": "/* Footer.css */\n.footer {\n  background-color: #333;\n  color: white;\n  text-align: center;\n  padding: 10px 0;\n  position: fixed;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n}"
+    },
+    "properties": [],
+    "references": [],"example": {
+      "description": "This is an example of the HooksPage component in use.",
+      "url": "https://via.placeholder.com/300"
+    }
+  },
+  {
+    "name": "Table",
+    "description": "A component to display tabular data. This component is useful for presenting structured data in a grid format, allowing for easy comparison and analysis.",
+    "installation": {
+      "description": "There is no need to install the Table component itself. However, if you want to use the same approach and styles, you should create a CSS file and import it into your component.",
+      "command": ""
+    },
+    "usage": {
+      "basic": {
+        "component": "Table.js",
+        "code": "import React from 'react';\nimport './Table.css';\n\nfunction Table({ data }) {\n  return (\n    <table className=\"table\">\n      <thead>\n        <tr>\n          {Object.keys(data[0]).map((key) => (\n            <th key={key}>{key}</th>\n          ))}\n        </tr>\n      </thead>\n      <tbody>\n        {data.map((row, index) => (\n          <tr key={index}>\n            {Object.values(row).map((value, i) => (\n              <td key={i}>{value}</td>\n            ))}\n          </tr>\n        ))}\n      </tbody>\n    </table>\n  );\n}\n\nexport default Table;",
+        "description": "This code demonstrates how to use the Table component to display tabular data. The component renders a table element with headers and rows based on the provided data."
+      }
+    },
+    "styles": {
+      "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
+      "file": "Table.css",
+      "code": "/* Table.css */\n.table {\n  width: 100%;\n  border-collapse: collapse;\n}\n\n.table th, .table td {\n  border: 1px solid #ddd;\n  padding: 8px;\n}\n\n.table th {\n  background-color: #f2f2f2;\n  text-align: left;\n}\n"
+    },
+    "properties": [
+      {
+        "name": "data",
+        "description": "The data to display in the table.",
+        "example": "<Table data={[{ name: 'John', age: 28 }, { name: 'Jane', age: 26 }]} />"
+      }
+    ],
+    "references": [],
+    "example": {
+      "description": "This is an example of the HooksPage component in use.",
+      "url": "https://via.placeholder.com/300"
+    }
+  },
+  {
+    "name": "Form",
+    "description": "A component to create forms for user input. This component is essential for collecting user data through various input fields and is highly customizable.",
+    "installation": {
+      "description": "There is no need to install the Form component itself. However, if you want to use the same approach and styles, you should create a CSS file and import it into your component.",
+      "command": ""
+    },
+    "usage": {
+      "basic": {
+        "component": "Form.js",
+        "code": "import React, { useState } from 'react';\nimport './Form.css';\n\nfunction Form() {\n  const [formData, setFormData] = useState({ name: '', email: '' });\n\n  const handleChange = (e) => {\n    const { name, value } = e.target;\n    setFormData({ ...formData, [name]: value });\n  };\n\n  const handleSubmit = (e) => {\n    e.preventDefault();\n    console.log(formData);\n  };\n\n  return (\n    <form onSubmit={handleSubmit} className=\"form\">\n      <div className=\"form-group\">\n        <label htmlFor=\"name\">Name:</label>\n        <input type=\"text\" id=\"name\" name=\"name\" value={formData.name} onChange={handleChange} />\n      </div>\n      <div className=\"form-group\">\n        <label htmlFor=\"email\">Email:</label>\n        <input type=\"email\" id=\"email\" name=\"email\" value={formData.email} onChange={handleChange} />\n      </div>\n      <button type=\"submit\">Submit</button>\n    </form>\n  );\n}\n\nexport default Form;",
+        "description": "This code demonstrates how to use the Form component to create a simple form for user input. The component includes state management for form data and handlers for input changes and form submission."
+      }
+    },
+    "styles": {
+      "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
+      "file": "Form.css",
+      "code": "/* Form.css */\n.form {\n  max-width: 600px;\n  margin: 0 auto;\n  padding: 20px;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  background-color: #f9f9f9;\n}\n\n.form-group {\n  margin-bottom: 15px;\n}\n\n.form-group label {\n  display: block;\n  margin-bottom: 5px;\n}\n\n.form-group input {\n  width: 100%;\n  padding: 8px;\n  box-sizing: border-box;\n}\n\nbutton {\n  padding: 10px 15px;\n  background-color: #28a745;\n  color: white;\n  border: none;\n  cursor: pointer;\n  border-radius: 4px;\n}\n\nbutton:hover {\n  background-color: #218838;\n}\n"
+    },
+    "properties": [
+      {
+        "name": "formData",
+        "description": "State object to hold form input values.",
+        "example": "const [formData, setFormData] = useState({ name: '', email: '' });"
+      },
+      {
+        "name": "handleChange",
+        "description": "Function to handle input changes.",
+        "example": "const handleChange = (e) => {\n  const { name, value } = e.target;\n  setFormData({ ...formData, [name]: value });\n};"
+      },
+      {
+        "name": "handleSubmit",
+        "description": "Function to handle form submission.",
+        "example": "const handleSubmit = (e) => {\n  e.preventDefault();\n  console.log(formData);\n};"
+      }
+    ],
+    "references": [],
+    "example": {
+      "description": "This is an example of the HooksPage component in use.",
+      "url": "https://via.placeholder.com/300"
+    }
+  }
 ]

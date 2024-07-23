@@ -3,7 +3,7 @@ import { FaRegCopy } from "react-icons/fa6";
 import { useState } from "react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atelierDuneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import styles from "../styles/RenderCode.module.css";
+import styles from "./RenderCode.module.css";
 
 export function RenderCode({ code }) {
   const [copied, setCopied] = useState(false);
@@ -23,6 +23,10 @@ export function RenderCode({ code }) {
   };
   return (
     <div className={styles.div}>
+      <button onClick={copyToClipboard} className={styles.button}>
+        {copied && <span className="copy-message">Copied</span>}
+        {copied ? "" : <FaRegCopy />}
+      </button>
       <SyntaxHighlighter
         className={styles.code}
         language="javascript"
@@ -30,11 +34,6 @@ export function RenderCode({ code }) {
       >
         {code}
       </SyntaxHighlighter>
-
-      <button onClick={copyToClipboard} className={styles.button}>
-        {copied && <span className="copy-message">Copied</span>}
-        {copied ? "" : <FaRegCopy />}
-      </button>
     </div>
   );
 }
