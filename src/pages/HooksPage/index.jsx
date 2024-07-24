@@ -2,26 +2,15 @@ import React from 'react';
 import styles from './HooksPage.module.css';
 
  export function HooksPage(){
-  const product = {
-    image: 'https://via.placeholder.com/300',
-    name: 'Product Name',
-    description: 'This is a short description of the product.',
-    price: '29.99'
-  };
-
-  function handelClick() {
-    //Add to cart function
-  }
   return (
-    <div className={styles.product_card}>
-      <img src={product.image} alt={product.name} className={styles.product_image} />
-      <div className={styles.product_details}>
-        <h2 className={styles.product_name}>{product.name}</h2>
-        <p className={styles.product_description}>{product.description}</p>
-        <div className={styles.product_price}>${product.price}</div>
-        <button className={styles.add_to_cart_button} onClick={handelClick}>Add to Cart</button>
-      </div>
-    </div>
+    <footer className={styles.footer}>
+      <h2 className={styles.title}>With ❤️ from Berlin</h2>
+      <ul className={styles.linkList}>
+        <li className={styles.listItem}><a href="#about-me" className={styles.link}>About Me</a></li>
+        <li className={styles.listItem}><a href="#contact" className={styles.link}>Contact</a></li>
+        <li className={styles.listItem}><a href="#feedback" className={styles.link}>Feedback</a></li>
+      </ul>
+    </footer>
   );
 };
 

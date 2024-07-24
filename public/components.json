@@ -9,7 +9,7 @@
     "usage": {
       "basic": {
         "component": "RenderCode.js",
-        "code": "import React, { useState } from \"react\"; // Import React and useState hook\nimport { FaRegCopy } from \"react-icons/fa6\"; // Import copy icon from react-icons\nimport { Light as SyntaxHighlighter } from \"react-syntax-highlighter\"; // Import SyntaxHighlighter component\nimport { atelierDuneDark } from \"react-syntax-highlighter/dist/esm/styles/hljs\"; // Import syntax highlighting style\nimport styles from \"../styles/RenderCode.module.css\"; // Import CSS module styles\n\nexport function RenderCode({ code }) {\n  const [copied, setCopied] = useState(false); // State to track if code is copied\n\n  const copyToClipboard = () => {\n    navigator.clipboard.writeText(code) // Copy code to clipboard\n      .then(() => {\n        setCopied(true); // Set copied state to true\n        setTimeout(() => {\n          setCopied(false); // Reset copied state after 1 second\n        }, 1000);\n      })\n      .catch((err) => {\n        console.error(\"Could not copy text: \", err); // Log error if copying fails\n      });\n  };\n\n  return (\n    <div className={styles.div}>\n      <SyntaxHighlighter\n        className={styles.code}\n        language=\"javascript\"\n        style={atelierDuneDark}\n      >\n        {code}\n      </SyntaxHighlighter>\n      <button onClick={copyToClipboard} className={styles.button}>\n        {copied && <span className=\"copy-message\">Copied</span>}\n        {copied ? \"\" : <FaRegCopy />}\n      </button>\n    </div>\n  );\n}\n",
+        "code": "import React, { useState } from \"react\"; // Import React and useState hook\nimport { FaRegCopy } from \"react-icons/fa6\"; // Import copy icon from react-icons\nimport { Light as SyntaxHighlighter } from \"react-syntax-highlighter\"; // Import SyntaxHighlighter component\nimport { atelierDuneDark } from \"react-syntax-highlighter/dist/esm/styles/hljs\"; // Import syntax highlighting style\nimport styles from \"../styles/RenderCode.module.css\"; // Import CSS module styles\n\nexport function RenderCode({ code }) {\n  const [copied, setCopied] = useState(false); // State to track if code is copied\n\n  const copyToClipboard = () => {\n    navigator.clipboard.writeText(code) // Copy code to clipboard\n      .then(() => {\n        setCopied(true); // Set copied state to true\n        setTimeout(() => {\n          setCopied(false); // Reset copied state after 1 second\n        }, 1000);\n      })\n      .catch((err) => {\n        console.error(\"Could not copy text: \", err); // Log error if copying fails\n      });\n  };\n\n  return (\n    <div className={styles.div}>\n      <SyntaxHighlighter\n        className={styles.code}\n        language=\"javascript\"\n        style={atelierDuneDark}\n      >\n        {code}\n      </SyntaxHighlighter>\n      <button onClick={copyToClipboard} className={styles.button}>\n        {copied ? <span className=\"copy-message\">Copied</span> : <FaRegCopy />}\n      </button>\n    </div>\n  );\n}\n",
         "description": "This code demonstrates how to use the RenderCode component to display code with syntax highlighting and a copy-to-clipboard feature. The component uses the useState hook to manage the copied state, and the navigator.clipboard API to copy text to the clipboard."
       }
     },
@@ -37,7 +37,7 @@
     ],
     "example": {
       "description": "This is an example of the HooksPage component in use.",
-      "url": "https://via.placeholder.com/300"
+      "url": "/public/images/RenderCode.webp"
     }
   },
   {
@@ -448,37 +448,46 @@
     }
   },
   {
-    "name": "Table",
-    "description": "A component to display tabular data. This component is useful for presenting structured data in a grid format, allowing for easy comparison and analysis.",
+    "name": "StyledTable",
+    "description": "The StyledTable component is designed to display a table with 5 rows and 5 columns, styled similarly to the previously created Card component. It uses CSS modules for styling, ensuring a clean and modern design.",
     "installation": {
-      "description": "There is no need to install the Table component itself. However, if you want to use the same approach and styles, you should create a CSS file and import it into your component.",
-      "command": ""
+      "description": "No additional dependencies are required for the StyledTable component. Ensure you have CSS module support configured in your React project.",
+      "command": "npm install"
     },
     "usage": {
       "basic": {
-        "component": "Table.js",
-        "code": "import React from 'react';\nimport './Table.css';\n\nfunction Table({ data }) {\n  return (\n    <table className=\"table\">\n      <thead>\n        <tr>\n          {Object.keys(data[0]).map((key) => (\n            <th key={key}>{key}</th>\n          ))}\n        </tr>\n      </thead>\n      <tbody>\n        {data.map((row, index) => (\n          <tr key={index}>\n            {Object.values(row).map((value, i) => (\n              <td key={i}>{value}</td>\n            ))}\n          </tr>\n        ))}\n      </tbody>\n    </table>\n  );\n}\n\nexport default Table;",
-        "description": "This code demonstrates how to use the Table component to display tabular data. The component renders a table element with headers and rows based on the provided data."
+        "component": "StyledTable.js",
+        "code": "import React from 'react';\nimport styles from './StyledTable.module.css';\n\nexport function StyledTable() {\n  const data = [\n    ['Header 1', 'Header 2', 'Header 3', 'Header 4', 'Header 5'],\n    ['Row 1 Col 1', 'Row 1 Col 2', 'Row 1 Col 3', 'Row 1 Col 4', 'Row 1 Col 5'],\n    ['Row 2 Col 1', 'Row 2 Col 2', 'Row 2 Col 3', 'Row 2 Col 4', 'Row 2 Col 5'],\n    ['Row 3 Col 1', 'Row 3 Col 2', 'Row 3 Col 3', 'Row 3 Col 4', 'Row 3 Col 5'],\n    ['Row 4 Col 1', 'Row 4 Col 2', 'Row 4 Col 3', 'Row 4 Col 4', 'Row 4 Col 5'],\n  ];\n\n  return (\n    <div className={styles.table_container}>\n      <table className={styles.table}>\n        <thead>\n          <tr>\n            {data[0].map((header, index) => (\n              <th key={index} className={styles.table_header}>{header}</th>\n            ))}\n          </tr>\n        </thead>\n        <tbody>\n          {data.slice(1).map((row, rowIndex) => (\n            <tr key={rowIndex}>\n              {row.map((cell, cellIndex) => (\n                <td key={cellIndex} className={styles.table_cell}>{cell}</td>\n              ))}\n            </tr>\n          ))}\n        </tbody>\n      </table>\n    </div>\n  );\n}\n\nexport default StyledTable;"
       }
     },
     "styles": {
       "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
-      "file": "Table.css",
-      "code": "/* Table.css */\n.table {\n  width: 100%;\n  border-collapse: collapse;\n}\n\n.table th, .table td {\n  border: 1px solid #ddd;\n  padding: 8px;\n}\n\n.table th {\n  background-color: #f2f2f2;\n  text-align: left;\n}\n"
+      "file": "StyledTable.module.css",
+      "code": ".table_container {\n  padding: 1rem;\n  border-radius: 8px;\n  overflow: hidden;\n  background-color: #b1b1b14c;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n  transition: transform 0.2s;\n  max-width: 600px;\n  margin: 10vw auto;\n  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;\n}\n\n.table_container:hover {\n  transform: scale(1.05);\n}\n\n.table {\n  width: 100%;\n  border-collapse: collapse;\n}\n\n.table_header {\n  background-color: #57c4db;\n  color: #ffffff;\n  padding: 8px;\n  text-align: left;\n  font-size: 1.2em;\n}\n\n.table_cell {\n  padding: 8px;\n  border-bottom: 1px solid #ddd;\n  color: #757575;\n}\n\n.table_cell:nth-child(even) {\n  background-color: #f2f2f2;\n}\n\n.table_cell:nth-child(odd) {\n  background-color: #ffffff;\n}"
     },
     "properties": [
       {
-        "name": "data",
-        "description": "The data to display in the table.",
-        "example": "<Table data={[{ name: 'John', age: 28 }, { name: 'Jane', age: 26 }]} />"
+        "name": "code",
+        "description": "The code to be displayed and copied. Pass the code as a string to this prop.",
+        "example": "<StyledTable code={`const a = 1;`} />"
       }
     ],
-    "references": [],
+    "references": [
+      {
+        "name": "SyntaxHighlighter Documentation",
+        "url": "https://github.com/react-syntax-highlighter/react-syntax-highlighter"
+      },
+      {
+        "name": "React Icons Documentation",
+        "url": "https://react-icons.github.io/react-icons/"
+      }
+    ],
     "example": {
-      "description": "This is an example of the HooksPage component in use.",
-      "url": "https://via.placeholder.com/300"
+      "description": "This is an example of the StyledTable component in use.",
+      "url": "/public/images/Table.webp"
     }
-  },
+  }
+  ,
   {
     "name": "Form",
     "description": "A component to create forms for user input. This component is essential for collecting user data through various input fields and is highly customizable.",

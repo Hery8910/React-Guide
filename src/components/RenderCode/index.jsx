@@ -23,9 +23,8 @@ export function RenderCode({ code }) {
   };
   return (
     <div className={styles.div}>
-      <button onClick={copyToClipboard} className={styles.button}>
-        {copied && <span className="copy-message">Copied</span>}
-        {copied ? "" : <FaRegCopy />}
+      <button onClick={copyToClipboard} className={styles.button}>     
+        {copied ? <span className="copy-message">Copied</span> : <FaRegCopy />}
       </button>
       <SyntaxHighlighter
         className={styles.code}
