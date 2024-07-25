@@ -6,8 +6,8 @@ export function HomePage() {
     <main className={styles.main}>
       <header className={styles.header}>
         <h1 className={styles.h1}>
-          A open source <span className={styles.span}>React</span> <br />
-          components library
+          A open source <span className={styles.span}>React </span> components
+          library
         </h1>
         <div className={styles.images}>
           <img

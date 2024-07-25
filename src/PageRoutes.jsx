@@ -7,6 +7,7 @@ import { StylesPage } from './pages/StylesPage'
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { BestPractice } from "./pages/BestPractice";
 import { Exercises } from "./pages/Exercises";
+import { About } from "./pages/About"
 
 export function PageRoutes() {
   return (
@@ -18,6 +19,7 @@ export function PageRoutes() {
         <Route path="/Styles" element={<StylesPage />} />
         <Route path="/BestPractice" element={<BestPractice />} />
         <Route path="/Exercises" element={<Exercises/>} />
+        <Route path="/About" element={<About/>} />
         <Route path="/*" element={<NotFoundPage/>} />
       
     </Routes>

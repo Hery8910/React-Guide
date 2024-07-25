@@ -1,16 +1,15 @@
 .body {
   display: flex;
   justify-items: center;
-  position: relative;
-width: 100%;
+  margin-left: 20vw;
   font-size: calc(12px + 0.5vw);
   color: #f6f5f7ce;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    text-align: justify;
+  text-align: justify;
 }
 .main {
-  width: 80%;
+  width: 70%;
 }
 .header {
   display: flex;
@@ -21,10 +20,11 @@ width: 100%;
   color: #57c4db;
   font-size: 4rem;
 }
-.header, .section, .p {
+.header,
+.section,
+.p {
   margin: 4rem auto;
 }
-
 
 .nav {
   border-left: 0.1px solid #f6f5f7;
@@ -35,6 +35,14 @@ width: 100%;
   list-style: none;
   cursor: pointer;
   margin-bottom: 0.3rem;
+}
+
+.a {
+  transition: color .4s ease-in-out;
+
+}
+.a:hover {
+  color: #57c4db;
 }
 
 .a,
@@ -50,5 +58,3 @@ width: 100%;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
-
-

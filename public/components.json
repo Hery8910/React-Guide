@@ -22,7 +22,7 @@
       {
         "name": "code",
         "description": "The code to be displayed and copied. Pass the code as a string to this prop.",
-        "example": "<RenderCode code={`const a = 1;`} />"
+        "example": "<RenderCode code={ } />"
       }
     ],
     "references": [
@@ -36,7 +36,7 @@
       }
     ],
     "example": {
-      "description": "This is an example of the HooksPage component in use.",
+      "description": "This is an example of the RenderCode component in use.",
       "url": "/public/images/RenderCode.webp"
     }
   },
@@ -92,7 +92,7 @@
     "usage": {
       "basic": {
         "component": "Card.js",
-        "code": "import React from 'react';\nimport styles from './Card.module.css';\n\nexport function Card() {\n  const product = {\n    image: 'https://via.placeholder.com/300',\n    name: 'Product Name',\n    description: 'This is a short description of the product.',\n    price: '29.99'\n  };\n\n  function handleClick() {\n    // Add to cart function\n  }\n\n  return (\n    <div className={styles.product_card}>\n      <img src={product.image} alt={product.name} className={styles.product_image} />\n      <div className={styles.product_details}>\n        <h2 className={styles.product_name}>{product.name}</h2>\n        <p className={styles.product_description}>{product.description}</p>\n        <div className={styles.product_price}>${product.price}</div>\n        <button className={styles.add_to_cart_button} onClick={handleClick}>Add to Cart</button>\n      </div>\n    </div>\n  );\n};",
+        "code": "import React from 'react';\nimport styles from './Card.module.css';\n\nexport function Card({product}) {\n  const product = { //This is a product example\n    image: 'https://via.placeholder.com/300',\n    name: 'Product Name',\n    description: 'This is a short description of the product.',\n    price: '29.99'\n  };\n\n  function handleClick() {\n    // Add to cart function\n  }\n\n  return (\n    <div className={styles.product_card}>\n      <img src={product.image} alt={product.name} className={styles.product_image} />\n      <div className={styles.product_details}>\n        <h2 className={styles.product_name}>{product.name}</h2>\n        <p className={styles.product_description}>{product.description}</p>\n        <div className={styles.product_price}>${product.price}</div>\n        <button className={styles.add_to_cart_button} onClick={handleClick}>Add to Cart</button>\n      </div>\n    </div>\n  );\n};",
         "description": "This code demonstrates how to use the Card component to display a title and content in a card layout. The component renders a card with the provided title and content."
       }
     },
@@ -103,14 +103,14 @@
     },
     "properties": [
       {
-        "name": "title",
-        "description": "The title of the card.",
-        "example": "<Card title=\"Card Title\" content=\"This is some content\" />"
+        "name": "",
+        "description": "",
+        "example": ""
       },
       {
-        "name": "content",
-        "description": "The content to display in the card.",
-        "example": "<Card title=\"Card Title\" content=\"This is some content\" />"
+        "name": "product",
+        "description": "The product to be displayed in the card.",
+        "example": "<Card product={ } />"
       }
     ],
     "references": [
@@ -424,29 +424,41 @@
   },
   {
     "name": "Footer",
-    "description": "A component to create a footer for your application. This component provides a consistent footer section that can be used to display copyright information, links, or other relevant details at the bottom of your application.",
+    "description": "The Footer component is designed to display a footer section with a title and an unordered list containing three links: About Me, Contact, and Feedback. It uses CSS modules for styling, ensuring a clean and modern design similar to other components.",
     "installation": {
-      "description": "There is no need to install the Footer component itself. However, if you want to use the same approach and styles, you should create a CSS file and import it into your component.",
+      "description": "No additional dependencies are required for the Footer component. Ensure you have CSS module support configured in your React project.",
       "command": ""
     },
     "usage": {
       "basic": {
         "component": "Footer.js",
-        "code": "import React from 'react';\nimport './Footer.css';\n\nfunction Footer() {\n  return (\n    <footer className=\"footer\">\n      <p>&copy; 2024 Your Company. All rights reserved.</p>\n    </footer>\n  );\n}\n\nexport default Footer;",
-        "description": "This code demonstrates how to use the Footer component to create a footer section at the bottom of your application. The component renders a footer element with a simple copyright message."
+        "code": "import React from 'react';\nimport styles from './Footer.module.css';\n\nexport function Footer() {\n  return (\n    <footer className={styles.footer}>\n      <h2 className={styles.title}>Made with ❤️ from Berlin</h2>\n      <ul className={styles.linkList}>\n        <li className={styles.listItem}><a href=\"#about-me\" className={styles.link}>About Me</a></li>\n        <li className={styles.listItem}><a href=\"#contact\" className={styles.link}>Contact</a></li>\n        <li className={styles.listItem}><a href=\"#feedback\" className={styles.link}>Feedback</a></li>\n      </ul>\n    </footer>\n  );\n}\n\nexport default Footer;"
       }
     },
     "styles": {
       "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
-      "file": "Footer.css",
-      "code": "/* Footer.css */\n.footer {\n  background-color: #333;\n  color: white;\n  text-align: center;\n  padding: 10px 0;\n  position: fixed;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n}"
+      "file": "Footer.module.css",
+      "code": ".footer {\n  padding: 1rem;\n  background-color: #b1b1b14c;\n  border-radius: 8px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n  text-align: center;\n  margin: 10vw auto;\n  max-width: 300px;\n  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;\n}\n\n.title {\n  font-size: 1.5em;\n  color: #ffffff;\n  margin-bottom: 1rem;\n}\n\n.linkList {\n  list-style-type: none;\n  padding: 0;\n}\n\n.listItem {\n  margin: 0.5rem 0;\n}\n\n.link {\n  color: #57c4db;\n  text-decoration: none;\n  transition: color 0.3s;\n}\n\n.link:hover {\n  color: #ffffff;\n}\n"
     },
-    "properties": [],
-    "references": [],"example": {
-      "description": "This is an example of the HooksPage component in use.",
-      "url": "https://via.placeholder.com/300"
+    "properties": [
+      {
+        "name": "code",
+        "description": "The code to be displayed and copied.",
+        "example": "<Footer />"
+      }
+    ],
+    "references": [
+      {
+        "name": "CSS Modules Documentation",
+        "url": "https://github.com/css-modules/css-modules"
+      }
+    ],
+    "example": {
+      "description": "This is an example of the Footer component in use.",
+      "url": "/public/images/Footer.webp"
     }
-  },
+  }
+  ,
   {
     "name": "StyledTable",
     "description": "The StyledTable component is designed to display a table with 5 rows and 5 columns, styled similarly to the previously created Card component. It uses CSS modules for styling, ensuring a clean and modern design.",
@@ -490,44 +502,39 @@
   ,
   {
     "name": "Form",
-    "description": "A component to create forms for user input. This component is essential for collecting user data through various input fields and is highly customizable.",
+    "description": "The Form component is designed to include an input for the name, an input for the email, and a textarea for comments. It uses CSS modules for styling, ensuring a clean and modern design similar to other components.",
     "installation": {
-      "description": "There is no need to install the Form component itself. However, if you want to use the same approach and styles, you should create a CSS file and import it into your component.",
+      "description": "No additional dependencies are required for the HooksPage component. Ensure you have CSS module support configured in your React project.",
       "command": ""
     },
     "usage": {
       "basic": {
-        "component": "Form.js",
-        "code": "import React, { useState } from 'react';\nimport './Form.css';\n\nfunction Form() {\n  const [formData, setFormData] = useState({ name: '', email: '' });\n\n  const handleChange = (e) => {\n    const { name, value } = e.target;\n    setFormData({ ...formData, [name]: value });\n  };\n\n  const handleSubmit = (e) => {\n    e.preventDefault();\n    console.log(formData);\n  };\n\n  return (\n    <form onSubmit={handleSubmit} className=\"form\">\n      <div className=\"form-group\">\n        <label htmlFor=\"name\">Name:</label>\n        <input type=\"text\" id=\"name\" name=\"name\" value={formData.name} onChange={handleChange} />\n      </div>\n      <div className=\"form-group\">\n        <label htmlFor=\"email\">Email:</label>\n        <input type=\"email\" id=\"email\" name=\"email\" value={formData.email} onChange={handleChange} />\n      </div>\n      <button type=\"submit\">Submit</button>\n    </form>\n  );\n}\n\nexport default Form;",
-        "description": "This code demonstrates how to use the Form component to create a simple form for user input. The component includes state management for form data and handlers for input changes and form submission."
+        "component": "HooksPage.js",
+        "code": "import React, { useState } from 'react';\nimport styles from './Form.module.css';\n\nexport function Form() {\n  const [name, setName] = useState('');\n  const [email, setEmail] = useState('');\n  const [comment, setComment] = useState('');\n\n  const handleSubmit = (e) => {\n    e.preventDefault();\n    // Handle form submission\n    console.log({ name, email, comment });\n  };\n\n  return (\n    <form className={styles.form} onSubmit={handleSubmit}>\n      <div className={styles.formGroup}>\n        <label htmlFor=\"name\" className={styles.label}>Name</label>\n        <input\n          type=\"text\"\n          id=\"name\"\n          className={styles.input}\n          value={name}\n          onChange={(e) => setName(e.target.value)}\n          required\n        />\n      </div>\n      <div className={styles.formGroup}>\n        <label htmlFor=\"email\" className={styles.label}>Email</label>\n        <input\n          type=\"email\"\n          id=\"email\"\n          className={styles.input}\n          value={email}\n          onChange={(e) => setEmail(e.target.value)}\n          required\n        />\n      </div>\n      <div className={styles.formGroup}>\n        <label htmlFor=\"comment\" className={styles.label}>Comment</label>\n        <textarea\n          id=\"comment\"\n          className={styles.textarea}\n          value={comment}\n          onChange={(e) => setComment(e.target.value)}\n          required\n        ></textarea>\n      </div>\n      <button type=\"submit\" className={styles.button}>Submit</button>\n    </form>\n  );\n}\n"
       }
     },
     "styles": {
       "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
-      "file": "Form.css",
-      "code": "/* Form.css */\n.form {\n  max-width: 600px;\n  margin: 0 auto;\n  padding: 20px;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  background-color: #f9f9f9;\n}\n\n.form-group {\n  margin-bottom: 15px;\n}\n\n.form-group label {\n  display: block;\n  margin-bottom: 5px;\n}\n\n.form-group input {\n  width: 100%;\n  padding: 8px;\n  box-sizing: border-box;\n}\n\nbutton {\n  padding: 10px 15px;\n  background-color: #28a745;\n  color: white;\n  border: none;\n  cursor: pointer;\n  border-radius: 4px;\n}\n\nbutton:hover {\n  background-color: #218838;\n}\n"
+      "file": "HooksPage.module.css",
+      "code": ".form {\n  padding: 1rem;\n  border-radius: 8px;\n  background-color: #b1b1b14c;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n  max-width: 400px;\n  margin: 10vw auto;\n  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;\n}\n\n.formGroup {\n  margin-bottom: 1rem;\n}\n\n.label {\n  display: block;\n  padding-bottom: .4rem;\n  color: #ffffff;\n  font-size: 1.2em;\n  background-color: #b1b1b14c;\n}\n\n.input, .textarea {\n  width: 100%;\n  padding: 0.5rem;\n  border-radius: 4px;\n  font-size: 1em;\n  box-sizing: border-box;\n}\n\n.textarea {\n  resize: vertical;\n  height: 100px;\n}\n\n.button {\n  background-color: #57c4db;\n  color: #ffffff;\n  border: none;\n  padding: 10px 16px;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 0.3s;\n}\n\n.button:hover {\n  background-color: #45a3ba;\n}\n"
     },
     "properties": [
       {
-        "name": "formData",
-        "description": "State object to hold form input values.",
-        "example": "const [formData, setFormData] = useState({ name: '', email: '' });"
-      },
-      {
-        "name": "handleChange",
-        "description": "Function to handle input changes.",
-        "example": "const handleChange = (e) => {\n  const { name, value } = e.target;\n  setFormData({ ...formData, [name]: value });\n};"
-      },
-      {
-        "name": "handleSubmit",
-        "description": "Function to handle form submission.",
-        "example": "const handleSubmit = (e) => {\n  e.preventDefault();\n  console.log(formData);\n};"
+        "name": "code",
+        "description": "The code to be displayed and copied. Pass the code as a string to this prop.",
+        "example": "<Form />"
       }
     ],
-    "references": [],
+    "references": [
+      {
+        "name": "CSS Modules Documentation",
+        "url": "https://github.com/css-modules/css-modules"
+      }
+    ],
     "example": {
       "description": "This is an example of the HooksPage component in use.",
-      "url": "https://via.placeholder.com/300"
+      "url": "/public/images/Form.webp"
     }
   }
+  
 ]

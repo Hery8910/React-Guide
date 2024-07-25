@@ -1,5 +1,6 @@
 .ul {
     list-style: none;
+    position: fixed;
     padding: 1rem;
     font-size: calc(14px + 0.5vw);
     border-right: 2px solid #f6f5f7;
@@ -9,5 +10,9 @@
     color: #f6f5f7;
     text-decoration: none;
     padding: .6rem;
-    
+    transition: color .4s ease-in-out;
+}
+
+.li:hover {
+    color: #57c4db;
 }
