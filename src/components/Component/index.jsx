@@ -3,6 +3,7 @@ import { FiExternalLink } from "react-icons/fi";
 import { useParams } from "react-router-dom";
 import { RenderCode } from "../RenderCode";
 import { ComponentHomePage } from "../../pages/ComponentHomePage";
+import ScrollspyNav from "react-scrollspy-nav";
 import styles from "./Component.module.css";
 
 export function Component({ data }) {
@@ -15,6 +16,22 @@ export function Component({ data }) {
       setComponent(foundComponent);
     }
   }, [name, data]);
+  useEffect(() => {
+    // Add a scroll event listener to check if the scrollspy is working
+    const handleScroll = () => {
+      console.log("Scrolling...");
+      const activeElement = document.querySelector(".is-active");
+      if (activeElement) {
+        console.log("Active element:", activeElement);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   if (!component) return <ComponentHomePage />;
 
@@ -22,18 +39,18 @@ export function Component({ data }) {
     <div className={styles.body}>
       <main className={styles.main}>
         <header className={styles.header}>
-        <div>
-          <h1 className={styles.h1}>{component.name}</h1>
-          <p className={styles.p}>{component.description}</p>
+          <div>
+            <h1 className={styles.h1}>{component.name}</h1>
+            <p className={styles.p}>{component.description}</p>
           </div>
           <img
-          className={styles.img}
-              src={component.example.url}
-              alt={component.example.description}
-            ></img>
+            className={styles.img}
+            src={component.example.url}
+            alt={component.example.description}
+          ></img>
         </header>
-        <section className={styles.section}>
-          <h2 className={styles.h2} id="installation">
+        <section className={styles.section} id="installation">
+          <h2 className={styles.h2}>
             Installation
           </h2>
           <p className={styles.p}>{component.installation.description}</p>
@@ -43,8 +60,8 @@ export function Component({ data }) {
             ""
           )}
         </section>
-        <section className={styles.section}>
-          <h2 className={styles.h2} id="usage">
+        <section className={styles.section} id="usage">
+          <h2 className={styles.h2}>
             Usage
           </h2>
           <h3>Basic</h3>
@@ -55,8 +72,8 @@ export function Component({ data }) {
             ""
           )}
         </section>
-        <section className={styles.section}>
-          <h2 className={styles.h2} id="styles">
+        <section className={styles.section} id="styles">
+          <h2 className={styles.h2}>
             Styles
           </h2>
           <p className={styles.p}>{component.styles.description}</p>
@@ -66,8 +83,8 @@ export function Component({ data }) {
             ""
           )}
         </section>
-        <section className={styles.section}>
-          <h2 className={styles.h2} id="properties">
+        <section className={styles.section} id="properties">
+          <h2 className={styles.h2}>
             Properties
           </h2>
           {component.properties.map((prop, index) => (
@@ -78,8 +95,8 @@ export function Component({ data }) {
             </div>
           ))}
         </section>
-        <section className={styles.section}>
-          <h2 id="references">References</h2>
+        <section className={styles.section} id="references">
+          <h2>References</h2>
           <ul className={styles.ul}>
             {component.references.map((ref, index) => (
               <li key={index} className={styles.li}>
@@ -96,35 +113,51 @@ export function Component({ data }) {
           </ul>
         </section>
       </main>
+
       <aside>
         <nav>
           <ul className={styles.nav}>
-            <h2 className={styles.h2}>In this page</h2>
-            <li className={styles.li}>
-              <a className={styles.a} href="#installation">
-                Installation
-              </a>
-            </li>
-            <li className={styles.li}>
-              <a className={styles.a} href="#usage">
-                Usage
-              </a>
-            </li>
-            <li className={styles.li}>
-              <a className={styles.a} href="#styles">
-                Styles
-              </a>
-            </li>
-            <li className={styles.li}>
-              <a className={styles.a} href="#properties">
-                Properties
-              </a>
-            </li>
-            <li className={styles.li}>
-              <a className={styles.a} href="#references">
-                References
-              </a>
-            </li>
+            <ScrollspyNav
+              scrollTargetIds={[
+                "installation",
+                "usage",
+                "styles",
+                "properties",
+                "references",
+              ]}
+              offset={100}
+              activeNavClass={styles.isActive}
+              scrollDuration="1000"
+              headerBackground="true"
+            >
+              <h2 className={styles.h2}>In this page</h2>
+
+              <li className={styles.li}>
+                <a className={styles.a} href="#installation">
+                  Installation
+                </a>
+              </li>
+              <li className={styles.li}>
+                <a className={styles.a} href="#usage">
+                  Usage
+                </a>
+              </li>
+              <li className={styles.li}>
+                <a className={styles.a} href="#styles">
+                  Styles
+                </a>
+              </li>
+              <li className={styles.li}>
+                <a className={styles.a} href="#properties">
+                  Properties
+                </a>
+              </li>
+              <li className={styles.li}>
+                <a className={styles.a} href="#references">
+                  References
+                </a>
+              </li>
+            </ScrollspyNav>
           </ul>
         </nav>
       </aside>

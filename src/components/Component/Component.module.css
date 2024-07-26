@@ -38,7 +38,7 @@
 }
 
 .a {
-  transition: color .4s ease-in-out;
+  transition: color .2s ease-in-out;
 
 }
 .a:hover {
@@ -57,4 +57,7 @@
   color: #f6f5f782;
   font-size: 2rem;
   margin-bottom: 1rem;
+}
+.isActive{
+  color: #57c4db;
 }
