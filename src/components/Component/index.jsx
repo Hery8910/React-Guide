@@ -17,17 +17,13 @@ export function Component({ data }) {
     }
   }, [name, data]);
   useEffect(() => {
-    // Add a scroll event listener to check if the scrollspy is working
     const handleScroll = () => {
-      console.log("Scrolling...");
       const activeElement = document.querySelector(".is-active");
-      if (activeElement) {
-        console.log("Active element:", activeElement);
-      }
+      
     };
     window.addEventListener("scroll", handleScroll);
 
-    // Clean up the event listener
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -127,7 +123,7 @@ export function Component({ data }) {
               ]}
               offset={100}
               activeNavClass={styles.isActive}
-              scrollDuration="1000"
+              scrollDuration="100"
               headerBackground="true"
             >
               <h2 className={styles.h2}>In this page</h2>

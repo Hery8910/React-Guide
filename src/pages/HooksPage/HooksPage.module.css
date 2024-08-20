@@ -1,49 +1,51 @@
-.form {
-    padding: 1rem;
-    border-radius: 8px;
-    background-color: #b1b1b14c;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: 10vw auto;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-  
-  .formGroup {
-    margin-bottom: 1rem;
-  }
-  
-  .label {
-    display: block;
-    padding-bottom: .4rem;
-    color: #ffffff;
-    font-size: 1.2em;
-    background-color: #b1b1b14c;
-  }
-  
-  .input, .textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 4px;
-    font-size: 1em;
-    box-sizing: border-box;
-  }
-  
-  .textarea {
-    resize: vertical;
-    height: 100px;
-  }
-  
-  .button {
-    background-color: #57c4db;
-    color: #ffffff;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .button:hover {
-    background-color: #45a3ba;
-  }
-  
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.carousel_inner {
+  display: flex;
+  transition: transform 2s ease-in-out;
+}
+
+.carousel_inner.transition {
+  transition: transform 2s ease-in-out;
+}
+
+.carousel_item {
+  display: flex;
+  justify-content: center;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel .img {
+  width: 100%;
+  display: block;
+}
+
+.carousel_indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.indicator {
+  border: none;
+  background: #ccc;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background: #c6c6c6;
+}

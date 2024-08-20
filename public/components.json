@@ -22,7 +22,7 @@
       {
         "name": "code",
         "description": "The code to be displayed and copied. Pass the code as a string to this prop.",
-        "example": "<RenderCode code={ } />"
+        "example": "<RenderCode code={ code } />"
       }
     ],
     "references": [
@@ -350,7 +350,7 @@
     "styles": {
       "description": "The component uses CSS modules for styling. Create a .module.css file and import it into your component to apply these styles.",
       "file": "ScrollSpy.css",
-      "code": "/* ScrollSpy.css */\n.is-current a {\n  color: red;\n  font-weight: bold;\n}"
+      "code": ".is-current a {\n  color: red;\n  font-weight: bold;\n}"
     },
     "properties": [
       {
