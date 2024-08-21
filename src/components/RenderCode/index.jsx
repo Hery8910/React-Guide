@@ -5,7 +5,7 @@ import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atelierDuneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import styles from "./RenderCode.module.css";
 
-export function RenderCode({ code }) {
+export function RenderCode({ code,language = "javascript" }) {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
@@ -28,7 +28,7 @@ export function RenderCode({ code }) {
       </button>
       <SyntaxHighlighter
         className={styles.code}
-        language="javascript"
+        language={language}
         style={atelierDuneDark}
       >
         {code}

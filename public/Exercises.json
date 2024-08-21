@@ -1,0 +1,84 @@
+[
+    {
+        "level": "Beginner",
+        "title": "Exercise 1: Create a Simple React Component",
+        "objective": "Learn how to create and render a basic React component.",
+        "description": "In this exercise, you will create a functional React component that displays a greeting message. The goal is to understand the basics of component creation and rendering in React.",
+        "requirements": "## Create a new React component named `Greeting`.\n## The component should return a `<div>` containing a message like \"Hello, World!\".\n## Import and render this component in the `App.js` file.\n## Ensure that the message is displayed in the browser when the application is run."
+    },
+    {
+        "level": "Beginner",
+        "title": "Exercise 2: Handling User Input",
+        "objective": "Learn how to handle user input and update the state in React.",
+        "description": "This exercise focuses on capturing user input through a text field and displaying the input dynamically on the screen.",
+        "requirements": "## Create a new React component named `UserInput`.\n## Add an input field where the user can type text.\n## Use the `useState` hook to manage the input value in the component's state.\n## Display the entered text below the input field as the user types.\n## Render the `UserInput` component in `App.js`."
+    },
+    {
+        "level": "Beginner",
+        "title": "Exercise 3: Conditional Rendering",
+        "objective": "Learn how to implement conditional rendering in a React component.",
+        "description": "In this exercise, you'll create a component that conditionally renders different messages based on a boolean state.",
+        "requirements": "## Create a new React component named `ConditionalMessage`.\n## Use the `useState` hook to manage a boolean state variable, initially set to `true`.\n## If the state is `true`, display the message \"The state is true!\".\n## If the state is `false`, display the message \"The state is false!\".\n## Add a button to toggle the state between `true` and `false`.\n## Render the `ConditionalMessage` component in `App.js`."
+    },
+    {
+        "level": "Beginner",
+        "title": "Exercise 4: Rendering Lists",
+        "objective": "Learn how to render a list of items dynamically using React.",
+        "description": "This exercise focuses on rendering a list of items from an array and understanding how to use the `map` function in React.",
+        "requirements": "## Create a new React component named `ItemList`.\n## Define an array of strings representing item names (e.g., `['Apple', 'Banana', 'Cherry']`).\n## Use the `map` function to dynamically render a list of these items inside a `<ul>` element.\n## Each item should be displayed as a `<li>` element.\n## Render the `ItemList` component in `App.js`."
+    },{
+        "level": "Intermediate",
+        "title": "Exercise 1: Lifting State Up",
+        "objective": "Understand how to manage shared state between multiple components by lifting state up to their nearest common ancestor.",
+        "description": "In this exercise, you'll create two child components that need to share and update a piece of state. The goal is to lift the state up to their common parent component and manage it there.",
+        "requirements": "1. Create two child components named `TemperatureInput` that represent Celsius and Fahrenheit input fields.\n2. Lift the shared state up to a parent component named `TemperatureConverter`.\n3. Implement logic in the parent component to convert the temperature values between Celsius and Fahrenheit as the user types.\n4. Render the `TemperatureConverter` component in `App.js` and ensure that the inputs are synchronized."
+      },
+      {
+        "level": "Intermediate",
+        "title": "Exercise 2: Controlled vs Uncontrolled Components",
+        "objective": "Learn the difference between controlled and uncontrolled components in React and how to handle form data.",
+        "description": "This exercise focuses on implementing both controlled and uncontrolled components for form inputs and understanding their use cases.",
+        "requirements": "1. Create a form with two input fields: one controlled and one uncontrolled.\n2. For the controlled input, use the `useState` hook to manage its value and implement an `onChange` handler.\n3. For the uncontrolled input, use a `ref` to access its value when the form is submitted.\n4. Display the values of both inputs when the form is submitted.\n5. Render the form in `App.js`."
+      },
+      {
+        "level": "Intermediate",
+        "title": "Exercise 3: Fetching Data from an API",
+        "objective": "Practice fetching and displaying data from an external API using the `useEffect` hook.",
+        "description": "In this exercise, you will fetch data from a public API and display it in a React component, handling loading and error states appropriately.",
+        "requirements": "1. Use the `useEffect` hook to fetch data from a public API (e.g., https://jsonplaceholder.typicode.com/posts).\n2. Manage the loading state while the data is being fetched.\n3. Handle any errors that may occur during the fetch operation.\n4. Display the fetched data in a list format.\n5. Render the component in `App.js`."
+      },
+      {
+        "level": "Intermediate",
+        "title": "Exercise 4: Creating Custom Hooks",
+        "objective": "Learn how to abstract component logic into reusable custom hooks.",
+        "description": "This exercise focuses on creating a custom hook that encapsulates common logic, making your components more reusable and easier to maintain.",
+        "requirements": "1. Create a custom hook named `useWindowWidth` that tracks the width of the browser window.\n2. Use the `useEffect` hook to add an event listener for window resize events.\n3. Return the current window width from the hook.\n4. Use this custom hook in a component to conditionally render content based on the window width.\n5. Render the component in `App.js`."
+      },{
+        "level": "Advanced",
+        "title": "Exercise 1: Implementing a Redux Middleware",
+        "objective": "Learn how to create and integrate custom middleware in Redux for handling side effects.",
+        "description": "In this exercise, you'll create a custom middleware for Redux to log every action dispatched and the state before and after the action is processed.",
+        "requirements": "1. Set up a Redux store with some initial state and a few reducers.\n2. Create a custom middleware named `loggerMiddleware`.\n3. In `loggerMiddleware`, log the action type, the state before the action, and the state after the action.\n4. Apply this middleware to the Redux store using `applyMiddleware`.\n5. Dispatch actions and observe the console logs to verify the middleware is working."
+      },
+      {
+        "level": "Advanced",
+        "title": "Exercise 2: Server-Side Rendering (SSR) with React",
+        "objective": "Understand how to implement server-side rendering in a React application to improve performance and SEO.",
+        "description": "This exercise will guide you through setting up a simple server-side rendering (SSR) environment for a React application using Node.js and Express.",
+        "requirements": "1. Set up a basic Express server.\n2. Install and configure `react-dom/server` to render your React components on the server.\n3. Create a basic React application with multiple routes.\n4. Implement SSR by rendering the initial HTML of your React components on the server and sending it to the client.\n5. Ensure the client can take over once the initial HTML is loaded (hydration)."
+      },
+      {
+        "level": "Advanced",
+        "title": "Exercise 3: Implementing Code Splitting with React and Webpack",
+        "objective": "Learn how to implement code splitting in a React application to optimize performance.",
+        "description": "In this exercise, you'll configure Webpack to split your React application into smaller bundles, loading them dynamically as needed.",
+        "requirements": "1. Set up a React application with multiple routes using React Router.\n2. Configure Webpack to enable code splitting using `import()`.\n3. Modify your React components to dynamically import other components or modules when needed.\n4. Verify that Webpack creates separate bundles for these components.\n5. Test the application to ensure that only the necessary code is loaded when each route is accessed."
+      },
+      {
+        "level": "Advanced",
+        "title": "Exercise 4: Implementing Authentication with JWT",
+        "objective": "Learn how to implement user authentication in a React application using JSON Web Tokens (JWT).",
+        "description": "This exercise focuses on building a secure authentication flow in a React application using JWT for user login and protected routes.",
+        "requirements": "1. Set up a backend server (e.g., Node.js with Express) to handle user authentication and generate JWTs.\n2. Implement a login form in React that sends user credentials to the backend and receives a JWT upon successful authentication.\n3. Store the JWT securely in the client (e.g., in memory or localStorage).\n4. Create a higher-order component (HOC) or a custom hook to protect routes based on the presence of a valid JWT.\n5. Test the authentication flow to ensure that only authenticated users can access protected routes."
+      }
+]
