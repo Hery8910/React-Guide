@@ -23,7 +23,8 @@
   gap: 2rem;
   list-style: none;
 }
-.li {
+.li, .aside {
+  position: relative;
   width: 100%;
   border: 1px solid #f6f5f740;
   padding: 1.5rem;
@@ -32,8 +33,27 @@
   transition: all .5s ease-in-out;
 }
 .li:hover {
-    transform: ;
+    transform: scale(105%);
 }
 .li_p {
   color: #57c4db;
+}
+.aside {
+  position: fixed;
+  top: 20rem;
+  left: 29rem;
+  padding: 1rem;
+  width: 900px;
+  color: #f6f5f7d5;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+  "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+}
+.button {
+  padding: .5rem .7rem;
+  border: 1px solid #f6f5f740;
+  box-shadow: 0px 2px 4px #f6f5f740;
+  border-radius: 4px;
+  transition: all .5s ease-in-out;
+  color: #f6f5f7d5;
 }
