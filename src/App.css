@@ -1,5 +1,24 @@
 * {
-    background-color: #212429;
-    box-sizing: border-box;
+  background-color: #212429;
+  box-sizing: border-box;
+  color: #f6f5f7d5;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
 
+h1 {
+  font-size: 3rem;
+  color: #57c4db;
+}
+h2 {
+  font-size: 1.8rem;
+  color: #57c4db;
+}
+h3 {
+  font-size: 1.2rem;
+  color: #f6f5f782;
+}
+p {
+  font-size: calc(14px + 0.5vw);
+  color: #f6f5f7d5;
 }

@@ -123,7 +123,7 @@ export function Component({ data }) {
               ]}
               offset={100}
               activeNavClass={styles.isActive}
-              scrollDuration="100"
+              scrollDuration="1000"
               headerBackground="true"
             >
               <h2 className={styles.h2}>In this page</h2>
