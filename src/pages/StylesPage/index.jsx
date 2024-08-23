@@ -14,59 +14,69 @@ export function StylesPage() {
     <>
       <aside className={styles.aside}>
         <nav>
-        <ScrollspyNav
-          scrollTargetIds={["about", "inline", "module", "component", "global"]}
-          offset={100}
-          activeNavClass={styles.isActive}
-          scrollDuration="1000"
-          headerBackground="true"
-        >
-          <ul className={styles.ul}>
-            <li className={styles.li}>
-              <a className={styles.a} href="#about">
-                About
-              </a>
-            </li>
-            <li className={styles.li}>
-              <a className={styles.a} href="#inline">
-                Inline
-              </a>
-            </li>
-            <li className={styles.li}>
-              <a className={styles.a} href="#module">
-                Module
-              </a>
-            </li>
-            <li className={styles.li}>
-              <a className={styles.a} href="#component">
-                Components
-              </a>
-            </li>
-            <li className={styles.li}>
-              <a className={styles.a} href="#global">
-                Global
-              </a>
-            </li>
-          </ul>
-        </ScrollspyNav>
+          <ScrollspyNav
+            scrollTargetIds={[
+              "about",
+              "inline",
+              "module",
+              "component",
+              "global",
+            ]}
+            offset={100}
+            activeNavClass={styles.isActive}
+            scrollDuration="1000"
+            headerBackground="true"
+          >
+            <ul className={styles.ul}>
+              <li className={styles.li}>
+                <a className={styles.a} href="#about">
+                  About
+                </a>
+              </li>
+              <li className={styles.li}>
+                <a className={styles.a} href="#inline">
+                  Inline
+                </a>
+              </li>
+              <li className={styles.li}>
+                <a className={styles.a} href="#module">
+                  Module
+                </a>
+              </li>
+              <li className={styles.li}>
+                <a className={styles.a} href="#component">
+                  Components
+                </a>
+              </li>
+              <li className={styles.li}>
+                <a className={styles.a} href="#global">
+                  Global
+                </a>
+              </li>
+            </ul>
+          </ScrollspyNav>
         </nav>
       </aside>
       <main className={styles.main} id="about">
         <header className={styles.header}>
           <h1 className={styles.h1}>Styling Methods in React</h1>
-          <h2 className={styles.h2}>
-            Understanding Different Approaches to Styling in React Applications
-          </h2>
-          <p className={styles.p}>
-            In this section, we explore the various methods available for
-            styling components in React. From inline styles and CSS Modules to
-            Styled Components and Global CSS, each approach offers unique
-            advantages tailored to specific use cases. Whether you're building a
-            small project or a large-scale application, understanding these
-            methods will help you choose the best strategy for managing and
-            scaling your styles effectively in React. Below, you'll find
-            detailed explanations and code examples for each styling technique.
-          </p>
+          <div className={styles.header_div}>
+            <h2 className={styles.h2}>
+              Understanding Different Approaches to Styling in React
+              Applications
+            </h2>
+            <p className={styles.p}>
+              In this section, we explore the various methods available for
+              styling components in React. From inline styles and CSS Modules to
+              Styled Components and Global CSS, each approach offers unique
+              advantages tailored to specific use cases. Whether you're building
+              a small project or a large-scale application, understanding these
+              methods will help you choose the best strategy for managing and
+              scaling your styles effectively in React. Below, you'll find
+              detailed explanations and code examples for each styling
+              technique.
+            </p>
+          </div>
         </header>
         <section className={styles.section} id="inline">
           <h2 className={styles.h2}>{data[0].title}</h2>

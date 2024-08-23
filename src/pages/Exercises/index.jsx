@@ -25,7 +25,7 @@ export function Exercises() {
       <header className={styles.header}>
         <h1 className={styles.h1}>Practice Exercises</h1>
         <div>
-          <h2 className={styles.h2}>
+          <h2 className={styles.header_h2}>
             Sharpen Your React Skills with Tailored Exercises
           </h2>
           <p className={styles.p}>

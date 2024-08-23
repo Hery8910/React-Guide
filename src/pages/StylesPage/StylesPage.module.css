@@ -10,6 +10,11 @@
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+.header {
+  display: flex;
+  gap: 5rem;
+  margin: 16rem 0;
+}
 .aside {
   color: #f6f5f782;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
