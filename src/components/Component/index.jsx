@@ -47,7 +47,7 @@ export function Component({ data }) {
               scrollDuration="1000"
               headerBackground="true"
             >
-              <h2 className={styles.h2}>In this page</h2>
+              <h3>In this page</h3>
 
               <li className={styles.li}>
                 <a className={styles.a} href="#installation">

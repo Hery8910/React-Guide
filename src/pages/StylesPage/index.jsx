@@ -28,6 +28,8 @@ export function StylesPage() {
             headerBackground="true"
           >
             <ul>
+            <h3>In this page</h3>
+
               <li>
                 <a href="#about">About</a>
               </li>
