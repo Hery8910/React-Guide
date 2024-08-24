@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import styles from "./About.module.css";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 export function About() {
   const [name, setName] = useState("");
@@ -16,21 +18,39 @@ export function About() {
     <>
       <main className={styles.main}>
         <header className={styles.header}>
-          <h1 className={styles.h1}>Hi!<br /> My name is <span className={styles.span}>Heriberto</span></h1>
-          <p className={styles.p}>
-            I'm currently enrolled in a fullstack web development course that
-            concludes in December 2024. I am passionate about developing
-            efficient and scalable web applications and continually learning and
-            improving my skills.
-          </p>
+            <h1>
+              Hi!
+              <br /> My name is Heriberto
+            </h1>
+          <div>
+            <p>
+              It's a pleasure to connect with you! If you have any questions,
+              feedback, or just want to say hello, feel free to get in touch
+              with me. I'm available for collaborations, professional
+              opportunities, and any other matters you'd like to discuss.
+            </p>
+        
+            <a
+              className={styles.a}
+              href="https://github.com/Hery8910"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Link to Github profile"
+            >
+              <FaGithub />
+            </a>
+            <a
+              className={styles.a}
+              href="https://www.linkedin.com/in/heriberto-santana-solsona-7366342b2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Link to linkedin profile"
+            >
+              <FaLinkedin />
+            </a>
+          </div>
         </header>
         <section className={styles.section}>
-          <p className={styles.p}>
-            It's a pleasure to connect with you! If you have any questions,
-            feedback, or just want to say hello, feel free to get in touch with
-            me. I'm available for collaborations, professional opportunities,
-            and any other matters you'd like to discuss.
-          </p>
           <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.formGroup}>
               <label htmlFor="name" className={styles.label}>

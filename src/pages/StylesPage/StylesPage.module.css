@@ -1,66 +1,9 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
-  gap: 3rem;
-  color: #f6f5f782;
-  font-size: 1.2rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-.header {
-  display: flex;
-  gap: 5rem;
-  margin: 16rem 0;
-}
 .aside {
-  color: #f6f5f782;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-  "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-.ul {
-  list-style: none;
   position: fixed;
-  padding: 1rem;
   right: 5rem;
-  font-size: calc(14px + 0.5vw);
-  border-left: 2px solid #f6f5f7;
+  border-left: 1px solid #f6f5f7d5;
 }
-.li, .a {
-  list-style: none;
-  cursor: pointer;
-  color: #f6f5f782;
-
-  text-decoration: none;
-  padding: .6rem;
-  transition: color .4s ease-in-out;
-}
-.h2 {
-  color: #f6f5f7;
-}
-.a:hover {
-  color: #57c4db;
-}
-.isActive{
-  color: #57c4db;
-}
-
-.section,
-.h2,
-.p {
-
-  margin-bottom: 2rem;
-}
-.div {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.h1 {
-  font-size: 3rem;
-  margin-bottom: 6rem;
+.isActive {
   color: #57c4db;
 
 }

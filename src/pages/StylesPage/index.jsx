@@ -27,79 +27,63 @@ export function StylesPage() {
             scrollDuration="1000"
             headerBackground="true"
           >
-            <ul className={styles.ul}>
-              <li className={styles.li}>
-                <a className={styles.a} href="#about">
-                  About
-                </a>
+            <ul>
+              <li>
+                <a href="#about">About</a>
               </li>
-              <li className={styles.li}>
-                <a className={styles.a} href="#inline">
-                  Inline
-                </a>
+              <li>
+                <a href="#inline">Inline</a>
               </li>
-              <li className={styles.li}>
-                <a className={styles.a} href="#module">
-                  Module
-                </a>
+              <li>
+                <a href="#module">Module</a>
               </li>
-              <li className={styles.li}>
-                <a className={styles.a} href="#component">
-                  Components
-                </a>
+              <li>
+                <a href="#component">Components</a>
               </li>
-              <li className={styles.li}>
-                <a className={styles.a} href="#global">
-                  Global
-                </a>
+              <li>
+                <a href="#global">Global</a>
               </li>
             </ul>
           </ScrollspyNav>
         </nav>
       </aside>
-      <main className={styles.main} id="about">
-        <header className={styles.header}>
-          <h1 className={styles.h1}>Styling Methods in React</h1>
-          <div className={styles.header_div}>
-            <h2 className={styles.h2}>
-              Understanding Different Approaches to Styling in React
-              Applications
-            </h2>
-            <p className={styles.p}>
-              In this section, we explore the various methods available for
-              styling components in React. From inline styles and CSS Modules to
-              Styled Components and Global CSS, each approach offers unique
-              advantages tailored to specific use cases. Whether you're building
-              a small project or a large-scale application, understanding these
-              methods will help you choose the best strategy for managing and
-              scaling your styles effectively in React. Below, you'll find
-              detailed explanations and code examples for each styling
-              technique.
-            </p>
-          </div>
+      <main id="about">
+        <header>
+          <h1>Styling Methods in React</h1>
+
+          <p>
+            In this section, we explore the various methods available for
+            styling components in React. From inline styles and CSS Modules to
+            Styled Components and Global CSS, each approach offers unique
+            advantages tailored to specific use cases. Whether you're building a
+            small project or a large-scale application, understanding these
+            methods will help you choose the best strategy for managing and
+            scaling your styles effectively in React. Below, you'll find
+            detailed explanations and code examples for each styling technique.
+          </p>
         </header>
-        <section className={styles.section} id="inline">
-          <h2 className={styles.h2}>{data[0].title}</h2>
-          <p className={styles.p}>{data[0].description}</p>
+        <section id="inline">
+          <h3>{data[0].title}</h3>
+          <p>{data[0].description}</p>
           <RenderCode code={data[0].code} />
         </section>
-        <section className={styles.section} id="module">
-          <h2 className={styles.h2}>{data[1].title}</h2>
-          <p className={styles.p}>{data[1].description}</p>
-          <div className={styles.div}>
+        <section id="module">
+          <h3>{data[1].title}</h3>
+          <p>{data[1].description}</p>
+          <div>
             <RenderCode code={data[1].code} />
             <RenderCode code={data[1].code2} />
           </div>
         </section>
-        <section className={styles.section} id="component">
-          <h2 className={styles.h2}>{data[2].title}</h2>
-          <p className={styles.p}>{data[2].description}</p>
+        <section id="component">
+          <h3>{data[2].title}</h3>
+          <p>{data[2].description}</p>
           <RenderCode code={data[2].code} />
         </section>
-        <section className={styles.section} id="global">
-          <h2 className={styles.h2}>{data[3].title}</h2>
-          <p className={styles.p}>{data[3].description}</p>
-          <div className={styles.div}>
+        <section id="global">
+          <h3>{data[3].title}</h3>
+          <p>{data[3].description}</p>
+          <div>
             <RenderCode code={data[3].code} />
             <RenderCode code={data[3].code2} />
           </div>

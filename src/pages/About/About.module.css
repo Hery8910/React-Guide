@@ -1,70 +1,76 @@
 .main {
-    display: flex;
-    align-items: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #ffffff;
-    font-size: calc(12px + 0.5vw);
-    width: 80vw;
-    gap: 5vw;
-    margin: 15vh auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1000px;
+  gap: 5vw;
+  margin: 15vh auto;
 }
-.h1 {
-    font-size: 3.5rem;
+.a {
+  color: inherit;
+  font-size: 2.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
 }
-.span {
-    color: #45a3ba;
+.a:hover {
+  color: #57c4db;
 }
 .section {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 .form {
-    padding: 1rem;
-    border-radius: 8px;
-    background-color: #b1b1b14c;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-  
-  .formGroup {
-    margin-bottom: 1rem;
-  }
-  
-  .label {
-    display: block;
-    padding-bottom: .4rem;
-    color: #ffffff;
-    font-size: 1.2em;
-    background-color: #b1b1b14c;
-  }
-  
-  .input, .textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 4px;
-    font-size: 1em;
-    box-sizing: border-box;
-  }
-  
-  .textarea {
-    resize: vertical;
-    height: 100px;
-  }
-  
-  .button {
-    background-color: #45a3ba;
-    color: #ffffff;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .button:hover {
-    background-color: #57c4db;
-  }
-  
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #f6f5f740;
+  box-shadow: 0px 2px 4px #f6f5f740;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  padding-bottom: 0.4rem;
+  font-size: 1.2em;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+  border: 1px solid #f6f5f740;
+  box-shadow: 0px 2px 4px #f6f5f740;
+  background-color: transparent;
+}
+
+.textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.button {
+  background-color: #45a3ba;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #57c4db;
+}

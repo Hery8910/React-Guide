@@ -27,34 +27,34 @@ export function BestPractice() {
             scrollDuration="1000"
             headerBackground="true"
           >
-            <ul className={styles.ul}>
-              <li className={styles.li}>
-                <a className={styles.a} href="#about">
+            <ul>
+              <li>
+                <a href="#about">
                   About
                 </a>
               </li>
-              <li className={styles.li}>
-                <a className={styles.a} href={`#${data.sections[0].id}`}>
+              <li>
+                <a href={`#${data.sections[0].id}`}>
                   Architecture
                 </a>
               </li>
-              <li className={styles.li}>
-                <a className={styles.a} href={`#${data.sections[1].id}`}>
+              <li>
+                <a href={`#${data.sections[1].id}`}>
                   SPA
                 </a>
               </li>
-              <li className={styles.li}>
-                <a className={styles.a} href={`#${data.sections[2].id}`}>
+              <li>
+                <a href={`#${data.sections[2].id}`}>
                   Reusability
                 </a>
               </li>
-              <li className={styles.li}>
-                <a className={styles.a} href={`#${data.sections[3].id}`}>
+              <li>
+                <a href={`#${data.sections[3].id}`}>
                   Performance
                 </a>
               </li>
-              <li className={styles.li}>
-                <a className={styles.a} href={`#${data.sections[4].id}`}>
+              <li>
+                <a href={`#${data.sections[4].id}`}>
                   Testing
                 </a>
               </li>
@@ -62,13 +62,10 @@ export function BestPractice() {
           </ScrollspyNav>
         </nav>
       </aside>
-      <main className={styles.main} id="about">
-        <header className={styles.header}>
-          <h1 className={styles.h1}>{data.header.title}</h1>
-          <div className={styles.header_div}>
-            <h2 className={styles.header_h2}>{data.header.subtitle}</h2>
-            <p className={styles.p}>{data.header.description}</p>
-          </div>
+      <main id="about">
+        <header>
+          <h1>{data.header.title}</h1>
+            <p>{data.header.description}</p>
         </header>
         <section className={styles.architecture} id={data.sections[0].id}>
           <main className={styles.architecture_main}>

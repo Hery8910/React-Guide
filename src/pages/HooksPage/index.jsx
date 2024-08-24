@@ -27,29 +27,29 @@ export function HooksPage() {
             scrollDuration="1000"
             headerBackground="true"
           >
-            <ul className={styles.nav_ul}>
-              <li className={styles.nav_li}>
-                <a className={styles.a} href="#about">
+            <ul>
+              <li>
+                <a href="#about">
                   About
                 </a>
               </li>
-              <li className={styles.nav_li}>
-                <a className={styles.a} href={`#${data.sections[0].id}`}>
+              <li>
+                <a href={`#${data.sections[0].id}`}>
                   Architecture
                 </a>
               </li>
-              <li className={styles.nav_li}>
-                <a className={styles.a} href={`#${data.sections[1].id}`}>
+              <li>
+                <a href={`#${data.sections[1].id}`}>
                   SPA
                 </a>
               </li>
-              <li className={styles.nav_li}>
-                <a className={styles.a} href={`#${data.sections[2].id}`}>
+              <li>
+                <a href={`#${data.sections[2].id}`}>
                   Reusability
                 </a>
               </li>
-              <li className={styles.nav_li}>
-                <a className={styles.a} href={`#${data.sections[3].id}`}>
+              <li>
+                <a href={`#${data.sections[3].id}`}>
                   Performance
                 </a>
               </li>
@@ -58,22 +58,19 @@ export function HooksPage() {
           </ScrollspyNav>
         </nav>
       </aside>
-      <header className={styles.header} id="about">
-        <h1 className={styles.h1}> {data.header.title}</h1>
-        <div>
-          <h2 className={styles.header_h2}>{data.header.subtitle}</h2>
-          <p className={styles.p}>{data.header.description}</p>
-        </div>
+      <header id="about">
+        <h1> {data.header.title}</h1>
+          <p>{data.header.description}</p>
       </header>
       <main className={styles.main}>
-        <ul className={styles.ul}>
+        <ul>
           {data.sections.map((element) => {
             return (
-              <li className={styles.li} key={element.id} id={element.id}>
-                <h2 className={styles.h2}>{element.title}</h2>
-                <p className={styles.p}>{element.description}</p>
-                <h3 className={styles.h3}>Benefits</h3>
-                <p className={styles.p}>{element.benefits}</p>
+              <li key={element.id} id={element.id}>
+                <h3>{element.title}</h3>
+                <p>{element.description}</p>
+                <h3>Benefits</h3>
+                <p>{element.benefits}</p>
                 <RenderCode code={element.implementation} language="javascript"/>
               </li>
             );

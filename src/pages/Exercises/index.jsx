@@ -22,12 +22,11 @@ export function Exercises() {
 
   return (
     <>
-      <header className={styles.header}>
+     
+      <main className={styles.main}>
+      <header>
         <h1 className={styles.h1}>Practice Exercises</h1>
-        <div>
-          <h2 className={styles.header_h2}>
-            Sharpen Your React Skills with Tailored Exercises
-          </h2>
+          
           <p className={styles.p}>
             On this page, you’ll find a collection of exercises categorized into
             three levels: Beginner, Intermediate, and Advanced. Each exercise is
@@ -37,9 +36,7 @@ export function Exercises() {
             challenge and enhance your understanding of React. I hope you find
             them useful. Happy coding!
           </p>
-        </div>
       </header>
-      <main className={styles.main}>
         <ul className={styles.ul}>
           {data.map((element) => {
             return (
