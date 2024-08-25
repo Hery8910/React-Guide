@@ -28,8 +28,7 @@ export function StylesPage() {
             headerBackground="true"
           >
             <ul>
-            <h3>In this page</h3>
-
+              <h3>In this page</h3>
               <li>
                 <a href="#about">About</a>
               </li>
@@ -64,28 +63,28 @@ export function StylesPage() {
             detailed explanations and code examples for each styling technique.
           </p>
         </header>
-        <section id="inline">
+        <section className={styles.section} id="inline">
           <h3>{data[0].title}</h3>
           <p>{data[0].description}</p>
           <RenderCode code={data[0].code} />
         </section>
-        <section id="module">
+        <section className={styles.section} id="module">
           <h3>{data[1].title}</h3>
           <p>{data[1].description}</p>
-          <div>
+          <div className={styles.div}>
             <RenderCode code={data[1].code} />
             <RenderCode code={data[1].code2} />
           </div>
         </section>
-        <section id="component">
+        <section className={styles.section} id="component">
           <h3>{data[2].title}</h3>
           <p>{data[2].description}</p>
           <RenderCode code={data[2].code} />
         </section>
-        <section id="global">
+        <section className={styles.section} id="global">
           <h3>{data[3].title}</h3>
           <p>{data[3].description}</p>
-          <div>
+          <div className={styles.div}>
             <RenderCode code={data[3].code} />
             <RenderCode code={data[3].code2} />
           </div>

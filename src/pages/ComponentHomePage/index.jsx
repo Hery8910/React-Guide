@@ -1,9 +1,8 @@
 import React from "react";
-import styles from "./ComponentHomePage.module.css";
 
 export function ComponentHomePage() {
   return (
-    <main className={styles.main}>
+    <main>
       <header>
         <h1>Welcome to the Component Library</h1>
         <p>

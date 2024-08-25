@@ -29,7 +29,6 @@ export function HooksPage() {
           >
             <ul>
             <h3>In this page</h3>
-
               <li>
                 <a href="#about">
                   About
@@ -64,7 +63,7 @@ export function HooksPage() {
         <h1> {data.header.title}</h1>
           <p>{data.header.description}</p>
       </header>
-      <main className={styles.main}>
+      <main>
         <ul>
           {data.sections.map((element) => {
             return (

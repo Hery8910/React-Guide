@@ -1,7 +1,7 @@
 .ul {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   list-style: none;
   margin: 2rem auto;
@@ -12,8 +12,7 @@
   cursor: pointer;
   color: #f6f5f7ce;
   text-decoration: none;
-  font-size: calc(14px + 0.4vw);
-  transition: all .6s ease-in-out;
+  transition: all .4s ease-in-out;
   border: 1px solid transparent;
   border-radius: 4px;
 }

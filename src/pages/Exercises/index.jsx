@@ -42,8 +42,8 @@ export function Exercises() {
             return (
               <li className={styles.li} key={element.title}>
                 <p className={styles.li_p}>{element.level}</p>
-                <h2 className={styles.h2}>{element.title}</h2>
-                <p className={styles.p}>{element.objective}</p>
+                <h2>{element.title}</h2>
+                <p>{element.objective}</p>
                 <button className={styles.button} onClick={() => handleClick(element)}>More info</button>
               </li>
             );
@@ -61,7 +61,7 @@ export function Exercises() {
             <p className={styles.li_p}>{popoverContent.level}</p>
             <h3>{popoverContent.title}</h3>
             <p className={styles.p}>{popoverContent.description}</p>
-            <RenderCode code={popoverContent.requirements} language="md" />
+            <RenderCode code={popoverContent.requirements} language={"Markdown"} />
           </div>
       </aside>
 

@@ -1,9 +1,18 @@
 .aside {
   position: fixed;
   right: 5rem;
+  padding-left: 1rem;
   border-left: 1px solid #f6f5f7d5;
 }
 .isActive {
   color: #57c4db;
 
+}
+.div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.section {
+  margin-bottom: 10rem;
 }

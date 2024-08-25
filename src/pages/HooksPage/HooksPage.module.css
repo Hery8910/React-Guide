@@ -1,6 +1,7 @@
 .aside {
   position: fixed;
   right: 5rem;
+  padding-left: 1rem;
   border-left: 1px solid #f6f5f7d5;
 }
 .isActive {

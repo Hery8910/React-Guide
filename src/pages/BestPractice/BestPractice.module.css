@@ -1,6 +1,7 @@
 .aside {
   position: fixed;
   right: 5rem;
+  padding-left: 1rem;
   border-left: 1px solid #f6f5f7d5;
 }
 .isActive {
@@ -16,11 +17,11 @@
 }
 .architecture_img {
   margin-top: 5rem;
-  width: 160%;
+  width: 100%;
   transition: all 0.5s ease-in-out;
 }
 .architecture_img:hover {
-  transform: scale(140%);
+  transform: scale(120%);
 }
 .reusability_header {
   display: flex;

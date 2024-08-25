@@ -7,7 +7,7 @@ export function HomePage() {
     <main className={styles.main}>
       <header>
         <h1>
-          A "kind" of React Components library
+          Developer Guide 
         </h1>
         <p>
           As part of the React course I participated in, we were required to

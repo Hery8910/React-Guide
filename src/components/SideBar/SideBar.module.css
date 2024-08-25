@@ -2,18 +2,7 @@
     position: fixed;
     left: 5rem;
     padding: 1rem;
-    font-size: calc(14px + 0.5vw);
     border-right: 1px solid #f6f5f7ce;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.li {
-    list-style: none;
-    color: #f6f5f7ce;
-    text-decoration: none;
-    margin-bottom: .4rem;
-    transition: color .4s ease-in-out;
 }
 
-.li:hover {
-    color: #57c4db;
-}
+
